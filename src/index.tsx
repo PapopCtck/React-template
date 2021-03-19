@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 
 import configureStore from './stores/config';
 
+import './i18n';
+
 const store = configureStore();
 
 ReactDOM.render(

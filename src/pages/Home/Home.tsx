@@ -1,15 +1,17 @@
 import { Component, ReactNode } from 'react';
 import { Header } from '../../components';
 
-export class Home extends Component {
+import { WithTranslation, withTranslation } from 'react-i18next';
+class Home extends Component<WithTranslation> {
   render(): ReactNode {
+    const { t } = this.props;
     return (
       <div> 
         <Header onLogin={() => null} onLogout={() => null} onCreateAccount={() => null} />
-        Home
+        {t('Welcome to React')}
       </div>
     );
   }
 }
 
-export default Home;
+export default withTranslation('home')(Home);

@@ -1,4 +1,4 @@
-import React, { createRef, ReactElement, ReactNode } from 'react';
+import React, { createRef, CSSProperties, ReactElement, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { withTheme, Theme } from '@emotion/react';
 import { ChevronDown } from 'react-feather';
@@ -21,9 +21,9 @@ export interface ICustomSelectData {
 }
 
 export interface ICustomSelectProps {
-  value: string,
-  children: ReactNode,
-  placeholder: string,
+  value?: string,
+  children?: ReactNode,
+  placeholder?: string,
   onChange: ({ 'target': { name, value, id } }:ICustomSelectData) => void,
   name?: string,
   id?: string,
@@ -35,8 +35,10 @@ export interface ICustomSelectProps {
 }
 
 export interface ISelect extends ICustomSelectProps{
-  children: ReactNode,
-  block: boolean,
+  children?: ReactNode,
+  block?: boolean,
+  containerClassname?: string,
+  containerStyle?: CSSProperties,
 }
 
 export interface ICustomSelectState {
@@ -54,7 +56,7 @@ export const StyledSelectContainer = styled.div`
   }
   .select-carret {
     position: absolute;
-    right: 1rem;
+    right: 0.8rem;
     top: 50%;
     transform: translateY(-45%);
   }
@@ -100,8 +102,8 @@ export const StyledCustomSelectContainer = styled.div`
   }
 
   .selected-text {
-    width: 95%;
-    height: 100%;
+    margin-right: calc(0.8rem + 15px);
+    height: calc(1em + 5px);
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -289,8 +291,8 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
 
 const CustomSelectWithTheme = withTheme(CustomSelect);
 
-export const Select = ({ children, block, ...rest }: ISelect): ReactElement => (
-  <StyledSelectContainer className={block ? 'block' : ''}>
+export const Select = ({ children, block, containerClassname,containerStyle, ...rest }: ISelect): ReactElement => (
+  <StyledSelectContainer className={`${block ? 'block' : ''} ${containerClassname}`} style={containerStyle}>
     <CustomSelectWithTheme {...rest}>
       {children}
     </CustomSelectWithTheme>

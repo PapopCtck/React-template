@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import styled from '@emotion/styled';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '../Button/Button';
+import { Select } from '../Select/Select';
 
 export interface IHeaderProps {
   user?: Record<string,unknown>;
@@ -16,7 +19,6 @@ export const StyledHeader = styled.header`
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 
   svg {
@@ -33,15 +35,20 @@ export const StyledHeader = styled.header`
     vertical-align: top;
   }
 
+  .app-name{
+    margin-right: auto;
+  }
+
   button + button {
     margin-left: 10px;
   }
 `;
 
-export const Header: React.FC<IHeaderProps> = ({ user, onLogin, onLogout, onCreateAccount }: IHeaderProps) => (
-  <StyledHeader>
+export const Header: React.FC<IHeaderProps> = ({ user, onLogin, onLogout, onCreateAccount }: IHeaderProps) => {
+  const { t, i18n } = useTranslation('common');
+  return (<StyledHeader>
     <div className="wrapper">
-      <div>
+      <div className="app-name">
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fillRule="evenodd">
             <path
@@ -58,18 +65,23 @@ export const Header: React.FC<IHeaderProps> = ({ user, onLogin, onLogout, onCrea
             />
           </g>
         </svg>
-        <h1>Header</h1>
+        <h1>{t('App name')}</h1>
       </div>
+
+      <Select onChange={e => i18n.changeLanguage(e.target.value)} value={i18n.language} containerStyle={{ marginRight: '10px' }} block>
+        <option value="th">TH - ภาษาไทย</option>
+        <option value="en">EN - english</option>
+      </Select>
       <div>
         {user ? (
-          <Button size="small" onClick={onLogout} label="Log out" />
+          <Button size="small" onClick={onLogout} label={t('Log out')} />
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button buttonType="primary" size="small" onClick={onCreateAccount} label="Sign up" />
+            <Button size="small" onClick={onLogin} label={t('Log in')} />
+            <Button buttonType="primary" size="small" onClick={onCreateAccount} label={t('Sign up')} />
           </>
         )}
       </div>
     </div>
   </StyledHeader>
-);
+  );};
