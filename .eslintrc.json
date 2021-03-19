@@ -1,0 +1,172 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true,
+        "mocha": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-useless-escape": "off",
+        "array-bracket-newline": [
+            "error",
+            "consistent"
+        ],
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "no-duplicate-imports": "error",
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "array-bracket-spacing": [
+            "error",
+            "never"
+        ],
+        "no-multi-spaces": "error",
+        "arrow-spacing": "error",
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
+        "react/prop-types": [
+            0
+        ],
+        "react/display-name": [
+            "off",
+            {
+                "ignoreTranspilerName": false
+            }
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "warn"
+                ]
+            }
+        ],
+        "curly": "warn",
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            2,
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "indent": [
+            "error",
+            2,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": "first",
+                "ArrayExpression": 1,
+                "ObjectExpression": 1,
+                "ImportDeclaration": 1
+            }
+        ],
+        "react/sort-comp": [
+            1,
+            {
+                "order": [
+                    "static-methods",
+                    "lifecycle",
+                    "/^on.+$/",
+                    "everything-else",
+                    "render"
+                ]
+            }
+        ],
+        "no-var": "error",
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any"
+            }
+        ],
+        "no-const-assign": "error",
+        "func-style": [
+            "error",
+            "declaration",
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
+        "semi-spacing": "error",
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "space-infix-ops": "error",
+        "newline-per-chained-call": [
+            "error",
+            {
+                "ignoreChainWithDepth": 4
+            }
+        ],
+        "no-whitespace-before-property": "error",
+        "padded-blocks": [
+            "error",
+            "never"
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "prefer-template": "error",
+        "template-curly-spacing": "error",
+        "react/self-closing-comp": [
+            "warn",
+            {
+                "component": true,
+                "html": true
+            }
+        ],
+        "react/react-in-jsx-scope": "off"
+    }
+}

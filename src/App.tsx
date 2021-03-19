@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ReactElement, useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Router, Switch, Route } from 'react-router-dom';
+import liff from '@line/liff';
+import { ThemeProvider } from '@emotion/react';
 
-function App() {
+import defaultTheme from './themes/default';
+import { setProfile } from './stores/actions';
+import { GlobalStyle } from './components';
+import commonConstant from './common/commonConstant';
+import { history, ErrorBoundary } from './utils';
+import { Home } from './pages';
+
+function App(): ReactElement {
+  const dispatch = useDispatch();
+  // useLayoutEffect(() => {
+  //   if (commonConstant.liffId){
+  //     liff.init({ liffId: commonConstant.liffId },() => {
+  //       if (!liff.isLoggedIn()) {
+  //         liff.login();
+  //       }
+  //       liff.getProfile()
+  //         .then(profile => {
+  //           dispatch(setProfile(profile));
+  //         });
+  //     },() => {
+  //       alert('Something went wrong, Please try again later');
+  //     });
+  //   }
+  // }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle theme={defaultTheme} />
+      <Router history={history}>
+        <ThemeProvider theme={defaultTheme}>
+          <ErrorBoundary>
+            <Switch>
+              <Route path={commonConstant.pathHome} component={Home} />
+            </Switch>
+          </ErrorBoundary>
+        </ThemeProvider>
+      </Router>
     </div>
   );
 }
