@@ -58,7 +58,7 @@ export const StyledSelectContainer = styled.div`
     position: absolute;
     right: 0.8rem;
     top: 50%;
-    transform: translateY(-45%);
+    transform: translateY(-50%);
   }
 `;
 
