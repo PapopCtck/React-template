@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 import configureStore from '@/stores/config';
 
-import '@/i18n';
-
 const store = configureStore();
 
 export type State = ReturnType<typeof store.getState>
