@@ -40,13 +40,14 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-app-rewired  start",
-    "build": "react-app-rewired  build",
-    "test": "react-app-rewired  test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "analyze": "webpack-bundle-analyzer 'build/static/js/*.js'"
+    "analyze": "webpack-bundle-analyzer 'build/static/js/*.js'",
+    "build:analyze": "BUNDLE_ANALYZE=true craco build"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +68,7 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^6.1.2",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
@@ -79,7 +81,6 @@
     "compression-webpack-plugin": "6.1.1",
     "eslint": "^7.21.0",
     "eslint-plugin-react": "^7.22.0",
-    "react-app-rewired": "^2.1.8",
     "webpack-bundle-analyzer": "^4.4.1"
   }
 }
