@@ -1,5 +1,7 @@
-import { CSSProperties, ReactElement } from 'react';
-
+import { CSSProperties, MouseEventHandler, ReactElement } from 'react';
+import styled from '@emotion/styled';
+import { Skeleton } from '../Skeleton/Skeleton';
+import { ProgressiveImage } from '../ProgressiveImage/ProgressiveImage';
 export interface IAvatar {
   borderRadius?: string,
   src?: string,
@@ -10,6 +12,25 @@ export interface IAvatar {
   size: string,
   style?: CSSProperties,
   className?: string,
+  loading?: boolean,
+  onClick?: MouseEventHandler,
+}
+
+export interface IStoryAvatarContainer {
+  borderColor?: string,
+}
+
+export interface IStoryAvatar extends IAvatar {
+  borderColor?: string,
+  loading?: boolean,
+}
+
+export interface IStoryAvatarContainer {
+  borderColor?: string,
+}
+
+export interface IStoryAvatar extends IAvatar {
+  borderColor?: string,
 }
 
 const defaultColors = [
@@ -33,7 +54,7 @@ function sumChars(str: string) {
 
 export const Avatar = (props: IAvatar): ReactElement => {
   const {
-    borderRadius = '100%',
+    borderRadius = '50%',
     src,
     srcset,
     name,
@@ -42,6 +63,8 @@ export const Avatar = (props: IAvatar): ReactElement => {
     size,
     style,
     className,
+    loading,
+    onClick,
   } = props;
 
   if (!name) {throw new Error('UserAvatar requires a name');}
@@ -65,7 +88,7 @@ export const Avatar = (props: IAvatar): ReactElement => {
   // eslint-disable-next-line prefer-const
   let inner, classes = [className, 'UserAvatar'];
   if (src || srcset) {
-    inner = <img className="UserAvatar--img" style={imageStyle} src={src} srcSet={srcset} alt={name} />;
+    inner = <ProgressiveImage className="UserAvatar--img" thumbWidth={20} style={imageStyle} src={src} srcSet={srcset || ' '} alt={name}/>;
   } else {
     let background;
     if (color) {
@@ -81,11 +104,29 @@ export const Avatar = (props: IAvatar): ReactElement => {
     inner = name.substr(0,2);
   }
 
-
+  if (loading) {return <div aria-label={name} className={classes.join(' ')} style={style}>
+    <Skeleton type="circle" height={size} width={size} />
+  </div>; }
   return (
-    <div aria-label={name} className={classes.join(' ')} style={style}>
+    <div aria-label={name} className={classes.join(' ')} style={style} onClick={onClick}>
       <div className="UserAvatar--inner" style={innerStyle}>
         {inner}
       </div>
     </div>);
 };
+
+export const StyledStoryAvatarContainer = styled.div<IStoryAvatarContainer>`
+  border-radius: 50%;
+  border: 1px solid ${props => props.borderColor ?? props.theme.primaryColor};
+  padding: 2px;
+  width: fit-content;
+`;
+
+export const StoryAvatar = (props: IStoryAvatar): ReactElement => (
+  <StyledStoryAvatarContainer className="styled-story-avatar-container" borderColor={props.borderColor}>
+    {
+      props.loading ? <Skeleton type="circle" height={props.size} width={props.size} /> 
+        : <Avatar {...props}/>
+    }
+  </StyledStoryAvatarContainer>
+);

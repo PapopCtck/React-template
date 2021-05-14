@@ -12,6 +12,13 @@ export default {
 
 const Template: Story<IAvatar> = (args) => <Avatar {...args} />;
 
+export const Loading = Template.bind({});
+Loading.args = {
+  name: 'Hello hello',
+  size: '32px',
+  loading: true,
+};
+
 export const Image = Template.bind({});
 Image.args = {
   src: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
