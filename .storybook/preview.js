@@ -5,7 +5,7 @@ export const parameters = {
 
 import { ThemeProvider, Global } from '@emotion/react';
 
-import { GlobalStyle } from "../src/components";
+import { GlobalStyle } from "../src/utils";
 import defaultTheme from '../src/themes/default';
 
 export const decorators = [(Story) => (

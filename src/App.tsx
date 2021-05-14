@@ -3,9 +3,8 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 
 import defaultTheme from './themes/default';
-import { GlobalStyle } from './components';
 import commonConstant from './common/commonConstant';
-import { history, ErrorBoundary } from './utils';
+import { history, ErrorBoundary, GlobalStyle } from './utils';
 import { Home } from './pages';
 import { useLineLiff } from './hooks';
 
