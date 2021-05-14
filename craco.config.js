@@ -32,6 +32,9 @@ module.exports = function () {
     plugins.push(new BundleAnalyzerPlugin());
   }
   return {
+    babel: {
+      plugins: ['@emotion/babel-plugin'],
+    },
     webpack: {
       plugins: {
         add: plugins,
