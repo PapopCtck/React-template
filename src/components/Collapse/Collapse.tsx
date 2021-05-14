@@ -3,8 +3,11 @@ import { ChevronDown } from 'react-feather';
 
 import styled from '@emotion/styled';
 
-export interface ICollapse {
+interface Standalone {
   standalone?: boolean,
+}
+
+export interface ICollapse extends Standalone {
   title: string,
   children?: ReactNode, 
   customSuffix?: ReactNode, 
@@ -15,23 +18,31 @@ export interface ICollapse {
   containerClassName?: string
 }
 
-export const StyledCollapseContainer = styled.div`
-hr {
+interface ICollapseContent extends Standalone {
+  active?: boolean,
+}
+
+const StyledCollapseContainer = styled.div``;
+
+const Hr = styled.hr`
     margin: 0;
     background: ${props => props.theme.componentBackgroundColor};
-  }
-  .collapse-header {
+`;
+
+const CollapseHeader = styled.div<Standalone>(`
     display: flex;
     align-items: center;
-    &.standalone {
-      background-color: ${props => props.theme.componentBackgroundColor};
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.04);
-      padding: 15px;
-    }
-    .title {
+`,props => ({
+  backgroundColor: `${props.theme.componentBackgroundColor}`,
+  boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.04)',
+  padding: '15px',
+}));
+
+const Title = styled.span`
       margin-right: auto;
-    }
-    .suffix {
+`;
+
+const Suffix = styled.span`
       img {
         transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
       }
@@ -43,24 +54,25 @@ hr {
           }
         }
       }
-    }
-  }
-  .collapse-content {
+`;
+
+const CollapseContent = styled.div<ICollapseContent>(`
     overflow: hidden;
     max-height: 0;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     height: auto;
-    .content-container {
-      margin: 15px;
-    }
-    &.standalone {
-      background-color: ${props => props.theme.baseBackgroundColor};
-    }
-    &.active {
-      max-height: var(--max-height);
-      transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-  }
+`,
+props => props.standalone && ({
+  backgroundColor: `${props.theme.baseBackgroundColor}`,
+}),
+props => props.active && ({
+  maxHeight: 'var(--max-height)',
+  transition: 'all 1s cubic-bezier(0.075, 0.82, 0.165, 1)',
+}),
+);
+
+const ContentContainer = styled.div`
+  margin: 15px;
 `;
 
 export const Collapse = ({ standalone = false,title,children, customSuffix, isCollpased, onClick , seperator = true, noContent = false, containerClassName }: ICollapse): ReactElement => {
@@ -76,20 +88,19 @@ export const Collapse = ({ standalone = false,title,children, customSuffix, isCo
   },[isCollpased]);
   return (
     <StyledCollapseContainer className={`${!collapse && 'active'} ${noContent && 'no-content'} ${containerClassName}`}>
-      <div className={`collapse-header ${standalone && 'standalone'}`} onClick={ onClick ? () => onClick() : () => setCollapse(collapse => !collapse)}>
-        <span className="title">{title}</span>
-        <span className={`suffix ${!collapse && 'active'} ${customSuffix && 'custom'}`}>
+      <CollapseHeader standalone={standalone} onClick={ onClick ? () => onClick() : () => setCollapse(collapse => !collapse)}>
+        <Title>{title}</Title>
+        <Suffix className={`suffix ${!collapse && 'active'} ${customSuffix && 'custom'}`}>
           {
             customSuffix ? customSuffix : <ChevronDown />
           }
-        </span>
-      </div>
-      { seperator && <hr/>}
-      <div ref={contentRef} className={`collapse-content ${standalone && 'standalone'} ${!collapse && 'active'}`}>
-        <div className="content-container">
+        </Suffix>
+      </CollapseHeader>
+      { seperator && <Hr/>}
+      <CollapseContent ref={contentRef} standalone={standalone} active={!collapse}>
+        <ContentContainer>
           {children}
-        </div>
-        
-      </div>
+        </ContentContainer>
+      </CollapseContent>
     </StyledCollapseContainer>
   );};
