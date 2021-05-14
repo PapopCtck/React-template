@@ -29,6 +29,18 @@ Link.args = {
   label: 'Button',
 };
 
+export const Warning = Template.bind({});
+Warning.args = {
+  buttonType: 'warning',
+  label: 'Button',
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  buttonType: 'danger',
+  label: 'Button',
+};
+
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
