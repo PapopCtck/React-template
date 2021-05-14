@@ -30,4 +30,5 @@ CustomValidate.args = {
   customValidate: true,
   customValidateMessage: 'this is a custom message',
   required: true,
+  suffix: 'test',
 };
