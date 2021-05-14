@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { RefObject, useLayoutEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import liff from '@line/liff';
 
@@ -23,3 +23,51 @@ export function useLineLiff(): void {
     }
   }, []);
 }
+
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
+export function useWindowDimensions(): { width: number, height: number } {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useLayoutEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
+export const useIntersectionObserver = ({
+  target,
+  onIntersect,
+  threshold = 0.1,
+  rootMargin = '0px',
+}: {
+  target: RefObject<Element>,
+  onIntersect: IntersectionObserverCallback,
+  threshold?: number,
+  rootMargin?: string,
+}): void => {
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(onIntersect, {
+      rootMargin,
+      threshold,
+    });
+    const current = target.current as Element;
+    observer.observe(current);
+    return () => {
+      observer.unobserve(current);
+    };
+  });
+};
