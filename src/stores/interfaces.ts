@@ -6,7 +6,6 @@ export interface Types extends Record<string,string> {
     FAILURE: string,
 }
 
-
 export interface Action {
   type: string,
   resTypes?: Types,
@@ -14,4 +13,6 @@ export interface Action {
   data?: any,
   method?: string,
   isToken?: boolean,
+  upload?: boolean,
+  isLogin?: boolean,
 }
