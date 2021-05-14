@@ -10,10 +10,13 @@ export interface ITextArea {
 
 export const TextAreaContainer = styled.div`
   outline: none;
-  .label{
-    margin-bottom: 5px;
-  }
-  textarea {
+`;
+
+const Label = styled.div`
+margin-bottom: 5px;
+`;
+
+const Textarea = styled.textarea`
     width: 100%;
     min-height: 150px;
     border-color: ${props => props.theme.borderColorBase};
@@ -21,16 +24,10 @@ export const TextAreaContainer = styled.div`
     font-family: ${props => props.theme.fontFamily};
     padding: 5px;
     font-size: ${props => props.theme.fontSizeBase};
-    :focus {
+    &:focus {
       border: solid 1px ${props => props.theme.primaryColor};
       outline: none;
       box-shadow: ${props => `${props.theme.boxShadowInput} ${colorMix(props.theme.primaryColor,2)}`};
-    }
-    .block {
-      display: block;
-      margin: 10px 0;
-      width: 100%;
-      box-sizing: border-box;
     }
     & + .error-message {
       max-height: 0;
@@ -39,13 +36,13 @@ export const TextAreaContainer = styled.div`
       transition: max-height 0.3s ease-in;
       transition: opacity 0.3s ease-in;
     }
-  }
-  .text-count {
-    font-size: 0.75rem;
+`;
+
+const TextCount = styled.span`
+  font-size: 0.75rem;
     margin-right: -5px;
     float: right;
     color: ${props => props.theme.textColorSecondary};
-  }
 `;
 
 export const TextArea = ({ label, maxLength,value,...rest }: ITextArea): ReactElement => {
@@ -57,17 +54,17 @@ export const TextArea = ({ label, maxLength,value,...rest }: ITextArea): ReactEl
   return (
     <TextAreaContainer>
       {
-        label && <div className="label">{label}</div>
+        label && <Label>{label}</Label>
       }
-      <textarea 
+      <Textarea 
         onInput={handleInput}
         maxLength={maxLength}
         value={value}
         {...rest}
       />
-      { maxLength && <span className="text-count">
+      { maxLength && <TextCount>
         {`${value?.length ? value.length : length}/${maxLength}`}
-      </span>}
+      </TextCount>}
     </TextAreaContainer>
   );};
 
