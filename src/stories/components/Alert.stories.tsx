@@ -26,3 +26,11 @@ Danger.args = {
   closable: true,
   children: 'Danger',
 };
+
+export const Warning = Template.bind({});
+Warning.args = {
+  type: 'warning',
+  show: true,
+  closable: true,
+  children: 'Warning',
+};
