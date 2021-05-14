@@ -11,6 +11,8 @@ import './i18n';
 
 const store = configureStore();
 
+export type State = ReturnType<typeof store.getState>
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
