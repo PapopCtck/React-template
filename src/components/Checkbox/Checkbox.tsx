@@ -87,8 +87,8 @@ export const StyledBoxCheckboxContainer = styled.div`
     }
     input:checked {
       ~ .checkmark {
-        background-color: ${props => props.theme.primaryColor};
-        border: 1px solid ${props => props.theme.primaryColor};
+        background: ${props => props.theme.primaryColor};
+        border: 1px solid transparent;
       }
       ~ .checkmark:after {
         display: block;
