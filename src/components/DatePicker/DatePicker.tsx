@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, useState, useEffect } from 'react';
 import dayjs from 'dayjs';
-import DatePicker from 'react-datepicker';
+import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { ChevronDown } from 'react-feather';
@@ -17,11 +17,15 @@ export interface IStyledDatePickerContainer {
 export interface IonChangeDatePicker {
   target: {
     id?: string,
-    value: string,
+    value: string | [Date,Date] | null,
   }
 }
 
-export interface IDatePicker {
+export interface IDatePickerCustomOnchange {
+  onChange?: (target: IonChangeDatePicker, date: Date | [Date, Date] | null) => void,
+}
+
+export interface IDatePickerBase extends Omit<ReactDatePickerProps,keyof IDatePickerCustomOnchange> {
   label?: ReactNode,
   className?: string,
   block?: boolean,
@@ -29,12 +33,13 @@ export interface IDatePicker {
   errorMessage?: string,
   customValidate?: boolean,
   customValidateMessage?: string,
-  disabled?: boolean,
-  onChange: (target: IonChangeDatePicker) => void,
   id?: string,
   value?: string,
   dateFormat?: string,
+  valueFormat?: string,
 }
+
+export type IDatePicker = IDatePickerBase & IDatePickerCustomOnchange;
 
 export const StyledDatePickerContainer = styled('div')<IStyledDatePickerContainer>(
   props => css`
@@ -77,39 +82,63 @@ export const StyledDatePickerContainer = styled('div')<IStyledDatePickerContaine
   `
   ));
 
+/**
+ * Custom Datepicker using react-datepicker
+ * @param {string} dateFormat react-datepicker format
+ * @param {string} valueFormat return format using dayjs https://day.js.org/docs/en/display/format
+ */
 export const CustomDatePicker = ({
   label,
   className,
   block, suffix,
   errorMessage, customValidate,
   customValidateMessage, disabled,
-  onChange, id, value, dateFormat,
+  onChange, id, value, 
+  dateFormat = 'dd/MM/yyyy',
+  valueFormat = 'DD/MM/YYYY',
   ...rest
-}: IDatePicker): ReactElement => (
-  <StyledDatePickerContainer block={block}>
-    {
-      label && <div className="label">{label}</div>
-    }
-    <DatePicker
-      className={`date-picker ${className} ${customValidate ? 'showcustom' : ''}`}
-      dateFormat={dateFormat ? dateFormat : 'dd/MM/yyyy'}
-      disabled={disabled}
-      selected={value ? new Date(value) : null}
-      onChange={e => onChange ? onChange({ target: { id, value: dayjs(e as Date).format('YYYY-MM-DD') } }) : undefined}
-      onChangeRaw={e => e.preventDefault()}
-      {...rest}
-    />
-    {
-      suffix && <span className={`suffix-icon ${disabled && 'disabled'}`}>
-        {suffix}
-      </span>
-    }
-    {
-      errorMessage && <div className="error-message">{customValidate ? customValidateMessage : errorMessage}</div>
-    }
+}: IDatePicker): ReactElement => {
+  const [val, setVal] = useState<Date | null>(null);
 
-  </StyledDatePickerContainer>
-);
+  const handleChange = (date: Date | [Date, Date] | /* for selectsRange */ null) => {
+    if (onChange) {
+      if (date instanceof Date){
+        onChange({ target: { id, value: dayjs(date).format(valueFormat) } },date);
+      } else {
+        onChange({ target: { id, value: date } },date);
+      }
+    } else {
+      if (date instanceof Date || date === null){
+        setVal(date);
+      }
+    }
+  };
+
+  return (
+    <StyledDatePickerContainer block={block}>
+      {
+        label && <div className="label">{label}</div>
+      }
+      <DatePicker
+        className={`date-picker ${className} ${customValidate ? 'showcustom' : ''}`}
+        dateFormat={dateFormat}
+        disabled={disabled}
+        selected={value ? new Date(value) : val}
+        onChange={handleChange}
+        onChangeRaw={e => e.preventDefault()}
+        {...rest}
+      />
+      {
+        suffix && <span className={`suffix-icon ${disabled && 'disabled'}`}>
+          {suffix}
+        </span>
+      }
+      {
+        errorMessage && <div className="error-message">{customValidate ? customValidateMessage : errorMessage}</div>
+      }
+    </StyledDatePickerContainer>
+  );
+};
 
 export interface IonChangeLegacyDatePicker {
   target: {
@@ -125,7 +154,7 @@ export interface ILegacyDatepicker{
   name?: string, 
   maxYear: number, 
   minYear: number, 
-  value: number,
+  value: string
   showDate?: boolean,
   showMonth?: boolean, 
   showYear?: boolean, 
@@ -161,10 +190,14 @@ export const StyledLegacyDatePickerContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 10px;
-  .inline-picker {
-    position: relative;
-    display: inline-flex;
-    select{
+`;
+
+const InlinePicker = styled.div`
+  position: relative;
+  display: inline-flex;
+`;
+
+const LDSelect = styled.select`
       outline: none;
       padding: 0;
       border: none;
@@ -176,8 +209,6 @@ export const StyledLegacyDatePickerContainer = styled.div`
         color: ${props => props.theme.textColorSecondary};
         border-bottom: 1px solid ${props => colorMix(props.theme.borderColorBase,4)};
       }
-    }
-  }
 `;
 
 export const LegacyDatepicker = (props: ILegacyDatepicker): ReactElement => {
@@ -286,45 +317,148 @@ export const LegacyDatepicker = (props: ILegacyDatepicker): ReactElement => {
   return (
     <StyledLegacyDatePickerContainer className="datepicker-container" style={{ 'gridTemplateColumns': templateColumn() }}>
       {
-        showDate && <div className="inline-picker date">
-          <select id="day" className={day ? '' : 'placeholder'} value={day ? day : ''} onChange={e => setDay(parseInt(e.target.value))}>
+        showDate && <InlinePicker className="date">
+          <LDSelect id="day" className={day ? '' : 'placeholder'} value={day ? day : ''} onChange={e => setDay(parseInt(e.target.value))}>
             <option value="" disabled>{DATE[language]}</option>
             {
               renderDayOptions()
             }
-          </select>
+          </LDSelect>
           <div className="select_arrow">
             <ChevronDown />
           </div>
-        </div>
+        </InlinePicker>
       }
       {
-        showMonth && <div className="inline-picker month">
-          <select className={month ? '' : 'placeholder'} value={month ? month : ''} onChange={e => setMonth(parseInt(e.target.value))}>
+        showMonth && <InlinePicker className="month">
+          <LDSelect className={month ? '' : 'placeholder'} value={month ? month : ''} onChange={e => setMonth(parseInt(e.target.value))}>
             <option value="" disabled>{MONTH[language]}</option>
             {
               renderMonthOptions()
             }
-          </select>
+          </LDSelect>
           <div className="select_arrow">
             <ChevronDown />
           </div>
-        </div>    
+        </InlinePicker>    
       }
       {
-        showYear && <div className="inline-picker year">
-          <select className={year ? '' : 'placeholder'} value={year ? year : ''} onChange={e => setYear(parseInt(e.target.value))}>
+        showYear && <InlinePicker className="year">
+          <LDSelect className={year ? '' : 'placeholder'} value={year ? year : ''} onChange={e => setYear(parseInt(e.target.value))}>
             <option value="" disabled>{YEAR[language]}</option>
             {
               renderYearOptions()
             }
-          </select>
+          </LDSelect>
           <div className="select_arrow">
             <ChevronDown />
           </div>
-        </div>
+        </InlinePicker>
       }
     </StyledLegacyDatePickerContainer>
   );
 };
 
+export interface ILegacyTimepicker{
+  onChange?: (val: IonChangeLegacyDatePicker) => void,
+  id?: string, 
+  name?: string, 
+  value?: string,
+  language?:string,
+}
+
+export const StyledLegacyTimePickerContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 5px;
+`;
+
+const LTTInlinePicker = styled(InlinePicker)`
+ align-items: center;
+`;
+
+const LTSelect = styled.select`
+      outline: none;
+      padding: 0;
+      border: none;
+      width: 100%;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      text-align: center;
+      text-align-last: center;
+      border: 1px solid ${props => colorMix(props.theme.borderColorBase,9)};
+      padding: 8px 10px;
+      border-radius: ${props => props.theme.borderRadiusBase};
+      transition: .3s all;
+      background: ${props => props.theme.componentBackgroundColor};
+      &:focus {
+        border-color: ${props => props.theme.linkColor};
+      }
+    &.placeholder{
+          color: ${props => props.theme.textColorSecondary};
+          border: 1px solid ${props => colorMix(props.theme.borderColorBase,4)};
+    }
+`;
+
+export const LegacyTimePicker = (props: ILegacyTimepicker): ReactElement => {
+  const { onChange, id , name, value } = props;
+  const [hour,setHour] = useState(value ? parseInt(value.split(':')[0]) : 0);
+  const [minute,setMinute] = useState(value ? parseInt(value.split(':')[1]) : 0);
+
+  useEffect(() => {
+    const isValueValid = minute >= 0 && hour >= 0;
+    const minWithZero = minute <= 9 ? `0${minute}` : minute;
+    const hrWithZero = hour <= 9 ? `0${hour}` : hour;
+    let timeFomatted = '';
+    if (isValueValid){
+      timeFomatted = `${hrWithZero}:${minWithZero}`;
+      if (onChange){
+        onChange({ 'target':{ name, id, 'value': timeFomatted } });
+      }
+    }
+  },[minute, hour]);  
+
+  const renderHourOptions = () => {
+    const returnArr = [];
+    for (let i = 0; i <= 23; i++){
+      const hrWithZero = i <= 9 ? `0${i}` : i;
+      returnArr.push(
+        <option value={i}>{hrWithZero}</option>,
+      );
+    }
+    return returnArr;
+  };
+
+  const renderMinuteOptions = () => {
+    const returnArr = [];
+    for (let i = 0; i <= 59; i++){
+      const minWithZero = i <= 9 ? `0${i}` : i;
+      returnArr.push(
+        <option value={i}>{minWithZero}</option>,
+      );
+    }
+    return returnArr;
+  };
+
+  return (
+    <StyledLegacyTimePickerContainer className="datepicker-container">
+      <LTTInlinePicker className="hour">
+        <LTSelect id="hour" className={hour || minute ? '' : 'placeholder'} value={hour} onChange={e => setHour(parseInt(e.target.value))}>
+          <option value="" disabled>--</option>
+          {
+            renderHourOptions()
+          }
+        </LTSelect>
+      </LTTInlinePicker>
+      <LTTInlinePicker>:</LTTInlinePicker>
+      <LTTInlinePicker className="minute">
+        <LTSelect id="minute" value={minute} className={hour || minute ? '' : 'placeholder'} onChange={e => setMinute(parseInt(e.target.value))}>
+          <option value="" disabled>--</option>
+          {
+            renderMinuteOptions()
+          }
+        </LTSelect>
+      </LTTInlinePicker>    
+    </StyledLegacyTimePickerContainer>
+  );
+};
