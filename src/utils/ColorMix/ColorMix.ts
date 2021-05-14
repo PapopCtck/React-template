@@ -9,20 +9,24 @@ const lightColorCount = 5;
 const darkColorCount = 4;
 
 const getHue = (hsv: tinycolor.ColorFormats.HSVA, i: number, isLight: boolean) => {
-  let hue;
-  if (hsv.h >= 60 && hsv.h <= 240) {
-    hue = isLight ? hsv.h - hueStep * i : hsv.h + hueStep * i;
+  let hue: number;
+  if (Math.round(hsv.h) >= 60 && Math.round(hsv.h) <= 240) {
+    hue = isLight ? Math.round(hsv.h) - hueStep * i : Math.round(hsv.h) + hueStep * i;
   } else {
-    hue = isLight ? hsv.h + hueStep * i : hsv.h - hueStep * i;
+    hue = isLight ? Math.round(hsv.h) + hueStep * i : Math.round(hsv.h) - hueStep * i;
   }
   if (hue < 0) {
     hue += 360;
   } else if (hue >= 360) {
     hue -= 360;
   }
-  return Math.round(hue);
+  return hue;
 };
 const getSaturation = (hsv: tinycolor.ColorFormats.HSVA, i: number, isLight: boolean) => {
+  // grey color don't change saturation
+  if (hsv.h === 0 && hsv.s === 0) {
+    return hsv.s;
+  }
   let saturation;
   if (isLight) {
     saturation = hsv.s - saturationStep * i;
@@ -65,3 +69,5 @@ export const colorMix = (color: string, index: number): string => {
     v: getValue(hsv, i, isLight),
   }).toHexString();
 };
+
+export const setAlpha = (color: string, alpha: number): string => tinycolor(color).setAlpha(alpha).toRgbString();
