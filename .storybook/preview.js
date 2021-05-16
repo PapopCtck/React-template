@@ -1,9 +1,14 @@
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  options: {
+    storySort: {
+      order: ['Documentation', 'Pages', ['Home'], 'Components'],
+    },
+  },
 }
 
-import { ThemeProvider, Global } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 
 import { GlobalStyle } from "../src/utils";
 import defaultTheme from '../src/themes/default';
