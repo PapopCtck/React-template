@@ -13,7 +13,7 @@ const Template: Story<IProgressiveImage> = (args) => <div style={{ width: '500px
 
 export const Simple = Template.bind({});
 Simple.args = {
-  src: 'https://picsum.photos/id/1018',
+  src: 'https://picsum.photos/id/1018/500',
   alt: 'Progressive loading',
   widthPrefix: '/',
 };
