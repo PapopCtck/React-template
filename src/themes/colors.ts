@@ -11,7 +11,7 @@ export const black = '#000';
 export const black2 = '#141414';
 export const black3 = '#1f1f1f';
 export const black4 = '#2c2c2c';
-export const black5 = '#';
+export const black5 = '#333333';
 export const black6 = '#404040';
 
 //color palettes
@@ -74,19 +74,6 @@ export const magenta7 = colorMix(magenta6, 7);
 export const magenta8 = colorMix(magenta6, 8);
 export const magenta9 = colorMix(magenta6, 9);
 export const magenta10 = colorMix(magenta6, 10);
-
-// alias of magenta
-export const pinkbase = '#eb2f96';
-export const pink6 = pinkbase;
-export const pink1 = colorMix(pink6, 1);
-export const pink2 = colorMix(pink6, 2);
-export const pink3 = colorMix(pink6, 3);
-export const pink4 = colorMix(pink6, 4);
-export const pink5 = colorMix(pink6, 5);
-export const pink7 = colorMix(pink6, 7);
-export const pink8 = colorMix(pink6, 8);
-export const pink9 = colorMix(pink6, 9);
-export const pink10 = colorMix(pink6, 10);
 
 export const redbase = '#f5222d';
 export const red6 = redbase;
