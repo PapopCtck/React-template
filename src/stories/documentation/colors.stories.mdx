@@ -1,0 +1,1778 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as colors from '../../themes/colors';
+
+<Meta title="Documentation/Colors" />
+
+<style>{`
+  .wrapper{
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .color-container{
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 15px;
+  }
+  .flex{
+    display: flex;
+  }
+  .left{
+    width: 30%;
+    flex-grow: 1;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .right{
+    width: 50%;
+  }
+  .color{
+    width: 5em;
+    border-radius: 5px;
+    transition: .3s all;
+  }
+  .color.white{
+    border: 1px solid #f2f2f2;
+  }
+  .color:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+  .color-small{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    transition: .3s all;
+  }
+   .color-small:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+  .detail{
+    padding: 0 10px;
+  }
+  .code{
+    font-size: 12px;
+  }
+  .color-variant{
+    font-size: 12px;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+  .mr{
+    margin-right: 5px;
+  }
+`}</style>
+
+# Colors
+
+#### Global color variables 
+
+available through
+
+`props.theme.colors`
+
+or
+
+`import * as colors from '${relative path to src/theme/colors.ts}'`
+
+<div className="wrapper">
+  <div className="white color-container flex">
+      <div className="color white" style={{ background: colors.white }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          White
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.white
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.white}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.white2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.white2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.white2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.white3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.white3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.white3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.white4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.white4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.white4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.white5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.white5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.white5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.white6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.white6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.white6}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="black color-container flex">
+      <div className="color" style={{ background: colors.black }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Black
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.black
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.black}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.black2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.black2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.black2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.black3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.black3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.black3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.black4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.black4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.black4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.black5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.black5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.black5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.black6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.black6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.black6}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="grey color-container flex">
+      <div className="color" style={{ background: colors.greybase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Grey
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.greybase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.greybase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.grey10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.grey10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.grey10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="blue color-container flex">
+      <div className="color" style={{ background: colors.bluebase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Blue
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.bluebase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.bluebase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.blue10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.blue10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.blue10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="purple color-container flex">
+      <div className="color" style={{ background: colors.purplebase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Purple
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.purplebase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purplebase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.purple10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.purple10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.purple10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="cyan color-container flex">
+      <div className="color" style={{ background: colors.cyanbase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Cyan
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.cyanbase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyanbase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.cyan10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.cyan10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.cyan10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="green color-container flex">
+      <div className="color" style={{ background: colors.greenbase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          green
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.greenbase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.greenbase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.green10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.green10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.green10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="magenta color-container flex">
+      <div className="color" style={{ background: colors.magentabase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Magenta
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.magentabase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magentabase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.magenta10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.magenta10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.magenta10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="red color-container flex">
+      <div className="color" style={{ background: colors.redbase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Red
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.redbase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.redbase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.red10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.red10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.red10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="orange color-container flex">
+      <div className="color" style={{ background: colors.orangebase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          Orange
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.orangebase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orangebase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.orange10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.orange10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.orange10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="yellow color-container flex">
+      <div className="color" style={{ background: colors.yellowbase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          yellow
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.yellowbase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellowbase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.yellow10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.yellow10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.yellow10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="volcano color-container flex">
+      <div className="color" style={{ background: colors.volcanobase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          volcano
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.volcanobase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcanobase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.volcano10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.volcano10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.volcano10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="geekblue color-container flex">
+      <div className="color" style={{ background: colors.geekbluebase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          geekblue
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.geekbluebase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekbluebase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.geekblue10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.geekblue10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.geekblue10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="lime color-container flex">
+      <div className="color" style={{ background: colors.limebase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          lime
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.limebase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.limebase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.lime10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.lime10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.lime10}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div className="gold color-container flex">
+      <div className="color" style={{ background: colors.goldbase }}  />
+    <div className="flex left">
+      <div className="detail">
+        <h3 className="name">
+          gold
+        </h3>
+          <div className="code">
+            <strong>js: </strong>
+            colors.goldbase
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.goldbase}
+          </div>
+      </div>
+    </div>
+    <div className="right">
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold2 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold2
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold2}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold3 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold3
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold3}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold4 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold4
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold4}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold5 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold5
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold5}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold6 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold6
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold6}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold7 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold7
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold7}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold8 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold8
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold8}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold9 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold9
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold9}
+          </div>
+      </div>
+      <div className="color-variant flex">
+         <div className="color-small mr" style={{ background: colors.gold10 }}  />
+        <div className="code mr">
+            <strong>js: </strong>
+            colors.gold10
+          </div>
+          <div className="code">
+            <strong>hex: </strong>
+          {colors.gold10}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
