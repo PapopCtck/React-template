@@ -19,3 +19,4 @@ export * from './ProgressiveImage/ProgressiveImage';
 export * from './Skeleton/Skeleton';
 export * from './TextGradient/TextGradient';
 export * from './Pagination/Pagination';
+export * from './UploadInput/UploadInput';
