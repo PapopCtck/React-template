@@ -369,12 +369,13 @@ export interface ILegacyTimepicker{
 
 export const StyledLegacyTimePickerContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto 10px auto;
   grid-column-gap: 5px;
 `;
 
 const LTTInlinePicker = styled(InlinePicker)`
  align-items: center;
+ justify-content: center;
 `;
 
 const LTSelect = styled.select`
