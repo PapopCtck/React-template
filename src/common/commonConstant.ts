@@ -7,7 +7,7 @@ export default {
   //path name
   Dashboard: 'ภาพรวม',
   //name
-  AppName: 'Shell',
+  AppName: 'ReactApp',
   //word
   Logout: 'ออกจากระบบ',
   // image
@@ -26,7 +26,7 @@ export default {
   thai: 'ไทย',
   eng: 'EN',
   //cookie name
-  cookieToken: 'mb_token',
+  cookieToken: 'react_token',
   // error
   // label
   DAYS: {
