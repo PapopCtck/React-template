@@ -11,7 +11,7 @@ export interface ICollapse extends Standalone {
   title: string,
   children?: ReactNode, 
   customSuffix?: ReactNode, 
-  isCollpased?: boolean, 
+  isCollapsed?: boolean, 
   onClick?: () => void, 
   seperator?: boolean, 
   noContent?: boolean, 
@@ -75,17 +75,17 @@ const ContentContainer = styled.div`
   margin: 15px;
 `;
 
-export const Collapse = ({ standalone = false,title,children, customSuffix, isCollpased, onClick , seperator = true, noContent = false, containerClassName }: ICollapse): ReactElement => {
+export const Collapse = ({ standalone = false,title,children, customSuffix, isCollapsed, onClick , seperator = true, noContent = false, containerClassName }: ICollapse): ReactElement => {
   const [collapse, setCollapse] = useState(true);
   const contentRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     contentRef.current?.style.setProperty('--max-height',`${contentRef.current.scrollHeight}px`);
   }, [collapse, children]);
   useEffect(() => {
-    if (isCollpased !== undefined){
-      setCollapse(isCollpased);
+    if (isCollapsed !== undefined){
+      setCollapse(isCollapsed);
     }
-  },[isCollpased]);
+  },[isCollapsed]);
   return (
     <StyledCollapseContainer className={`${!collapse && 'active'} ${noContent && 'no-content'} ${containerClassName}`}>
       <CollapseHeader standalone={standalone} onClick={ onClick ? () => onClick() : () => setCollapse(collapse => !collapse)}>
