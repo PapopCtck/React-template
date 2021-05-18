@@ -35,7 +35,7 @@ export interface IOTPInput {
   delay?: boolean,
   resendDelay?: number,
   invalidMessage?: ReactNode,
-  disable?: boolean, 
+  disabled?: boolean, 
 }
 
 interface IisFocusingCurrentTarget {
@@ -155,7 +155,7 @@ export const StyledOTPInputContainer = styled.form`
       }
     }
   }
-  &.disable {
+  &.disabled {
     input {
       color: #d3d3d3;
       border-color: #d3d3d3;
@@ -197,7 +197,7 @@ export const StyledOTPInputContainer = styled.form`
     font-size: 14px;
     margin-top: 10px;
     cursor: pointer;
-    &.disable {
+    &.disabled {
       opacity: 0.5;
     }
     &.countdown-shown {
@@ -212,7 +212,7 @@ export const StyledCountdown = styled.div`
   color: #cb5454;
 `;
 
-export const OTPInput = forwardRef(({ onChange, count = 0,invalid,id, onLastInput, loading, resendBtn = false, resendFn, delay = false, resendDelay = 60, invalidMessage = null, disable = false }: IOTPInput,ref): ReactElement => {
+export const OTPInput = forwardRef(({ onChange, count = 0,invalid,id, onLastInput, loading, resendBtn = false, resendFn, delay = false, resendDelay = 60, invalidMessage = null, disabled = false }: IOTPInput,ref): ReactElement => {
   const [activeInput, setActiveInput] = useState(-1);
   const [blurInput, setBlurInput] = useState(-1);
   const [otpValues, setOTPValues] = useState(Array(count).fill(''));
@@ -455,13 +455,13 @@ export const OTPInput = forwardRef(({ onChange, count = 0,invalid,id, onLastInpu
 
   return (
     <>
-      <StyledOTPInputContainer className={`${activeInput !== -1 && 'focus'} ${invalid && 'invalid'} ${loading && 'loading'} ${disable && 'disable'}`} onSubmit={(e) => e.preventDefault()} onBlur={onBlur}>
+      <StyledOTPInputContainer className={`${activeInput !== -1 && 'focus'} ${invalid && 'invalid'} ${loading && 'loading'} ${disabled && 'disabled'}`} onSubmit={(e) => e.preventDefault()} onBlur={onBlur}>
         <div className={`shimmer-container ${loading && 'loading'}`}>
           <div className="shimmer"/>
         </div>
         {renderInputs()}
         {invalid && <div className="invalid-message">{invalidMessage}</div>}
-        {resendBtn && <div className={`link ${(loading || disable) && 'disable'} ${countdown && 'countdown-shown'}`} onClick={loading || countdown ? undefined : () => handleResend()}> ขอหมายเลข OTP อีกครั้ง</div>}
+        {resendBtn && <div className={`link ${(loading || disabled) && 'disabled'} ${countdown && 'countdown-shown'}`} onClick={loading || countdown ? undefined : () => handleResend()}> ขอหมายเลข OTP อีกครั้ง</div>}
       </StyledOTPInputContainer>
       {countdown && <StyledCountdown>โปรดรอ {timer} วินาที ก่อนขอ otp อีกครั้ง</StyledCountdown> }
     </>
