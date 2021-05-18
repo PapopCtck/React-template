@@ -39,7 +39,7 @@ export const SkeletonWrapper = styled.div<ISkeleton>(props => css`
     }
 `, props => props.loading ? css`
   &:after{
-    animation: ${loading} 1.75s 0.5s infinite;
+    animation: ${loading} ${`${props.duration}s`} ${`${props.delay}s`} infinite;
   }
 ` : css`
   &:after{
@@ -47,6 +47,6 @@ export const SkeletonWrapper = styled.div<ISkeleton>(props => css`
 }
 `);
 
-export const Skeleton = ({ type = 'rectangle', loading = true ,...rest }: ISkeleton): ReactElement => (
-  <SkeletonWrapper type={type} loading={loading} {...rest} />
+export const Skeleton = ({ type = 'rectangle', loading = true, duration = 1.75,delay = 0.5 ,...rest }: ISkeleton): ReactElement => (
+  <SkeletonWrapper type={type} loading={loading} duration={duration} delay={delay} {...rest} />
 );
