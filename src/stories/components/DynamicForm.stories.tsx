@@ -6,6 +6,36 @@ import { DynamicForm, IDynamicForm, InputWithLength, Form, IDynamicFormTemplate 
 export default {
   title: 'Components/DynamicForm',
   component: DynamicForm,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Cause one form is never enough',
+      },
+    },
+  },
+  argTypes: {
+    data: {
+      description: 'data for template render',
+    },
+    template: {
+      description: 'template of form',
+    },
+    onAdd: {
+      description: 'Callback on add button click',
+    },
+    addText: {
+      description: 'Text for add button',
+    },
+    maxLength: {
+      description: 'Maximum length of form',
+    },
+    customFunction: {
+      description: 'other function to be pass to template',
+    },
+    edit: {
+      description: 'disable add function',
+    },
+  },
 } as Meta;
 
 const Template: Story<IDynamicForm> = (args) => <DynamicForm {...args} />;

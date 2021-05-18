@@ -8,6 +8,13 @@ export default {
   argTypes: {
     color: { control : 'color' },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Cause it look cooler this way',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <>

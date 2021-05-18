@@ -6,6 +6,13 @@ import { Input } from '../../components';
 export default {
   title: 'Components/Input',
   component: Input,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Simple html input with styled',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<InputHTMLAttributes<HTMLInputElement>> = (args) => <Input {...args} />;

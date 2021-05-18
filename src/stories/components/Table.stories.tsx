@@ -6,6 +6,13 @@ import { Table } from '../../components';
 export default {
   title: 'Components/Table',
   component: Table,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Simple table wrap with styled',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <Table {...args}>

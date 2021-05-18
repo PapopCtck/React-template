@@ -6,6 +6,13 @@ import { TextGradient } from '../../components';
 export default {
   title: 'Components/TextGradient',
   component: TextGradient,
+  parameters: {
+    docs: {
+      description: {
+        component: 'TASTE THE RAINBOW',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<HTMLAttributes<HTMLDivElement>> = (args) => <TextGradient {...args} />;

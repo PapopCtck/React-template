@@ -5,6 +5,30 @@ import { Skeleton,ISkeleton } from '../../components';
 export default {
   title: 'Components/Skeleton',
   component: Skeleton,
+  parameters: {
+    docs: {
+      description: {
+        component: 'This one can\'t dance though',
+      },
+    },
+  },
+  argTypes: {
+    loading: {
+      description: 'show or hide loading animation',
+    },
+    dark: {
+      description: 'invert color for dark background',
+    },
+    duration: {
+      description: 'animation duration',
+    },
+    delay: {
+      description: 'animation delay',
+    },
+    type: {
+      description: 'One of',
+    },
+  },
 } as Meta;
 
 const Template: Story<ISkeleton> = (args) => <Skeleton {...args} />;

@@ -6,7 +6,38 @@ export default {
   title: 'Components/Avatar',
   component: Avatar,
   argTypes: {
-    color: { control: 'color' },
+    color: { 
+      control: 'color', 
+      description: 'Background color of avatar', 
+    },
+    name: { 
+      description: 'User name for generate display name', 
+    },
+    size: {
+      description: 'width and height in css string', 
+    },
+    loading: {
+      description: 'Should avatar display content or loading skeleton',
+    },
+    src: {
+      description: 'User avatar image src',
+    },
+    colors: {
+      description: 'Replace preset colors for random background color',
+    },
+    srcset: {
+      description: 'User avatar images src for responsive image loading',
+    },
+    style: {
+      description: 'Css style',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'UI Element for display user avatar. Support image, text and loading skeleton',
+      },
+    },
   },
 } as Meta;
 
