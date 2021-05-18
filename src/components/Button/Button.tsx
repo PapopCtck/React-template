@@ -28,8 +28,11 @@ export const StyledButton = styled('button')<IStyledButtonProps>(
     line-height: 1;
     padding: 10px 20px;
     font-size: 1rem;
-    :focus{
-      outline: none
+    :focus {
+      outline: none;
+    };
+    &:active {
+      transform: translateY(2px);
     }
   `, props => {
     let result = {
@@ -52,6 +55,11 @@ export const StyledButton = styled('button')<IStyledButtonProps>(
           color: props.theme.textColor,
           background: 'transparent',
           boxShadow: props.theme.boxShadowButton,
+          border: `1px solid ${props.theme.borderColorSecondary}`,
+          '&:hover': {
+            color: props.theme.primaryHoverColor,
+            borderColor: props.theme.primaryHoverColor,
+          },
         };
         break;
       case 'link':
@@ -93,6 +101,11 @@ export const StyledButton = styled('button')<IStyledButtonProps>(
           color: props.theme.textColor,
           background: 'transparent',
           boxShadow: props.theme.boxShadowButton,
+          border: `1px solid ${props.theme.borderColorSecondary}`,
+          '&:hover': {
+            color: props.theme.primaryHoverColor,
+            borderColor: props.theme.primaryHoverColor,
+          },
         };
     } 
 
