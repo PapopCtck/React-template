@@ -62,6 +62,7 @@ import Repo from '../assets/repo.svg';
 - [Constants](#constants)
   - [Common Constants](#common-constants)
   - [Common Interfaces](#common-interfaces)
+  - [I18N](#i18n)
 - [Folder structure](#folder-structure)
   - [Pages](#pages)
   - [Components](#components)
@@ -279,6 +280,30 @@ import { YourInterface } from '../../common/commonInterfaces';
 
 ```
 
+## I18N
+
+Last constant that can be set if you use `i18n` version is .... well you guessed it `i18n`.
+
+Simply go to
+
+`src/i18n/locales`
+
+and place you common word inside
+
+`common.youLanguage.json`
+
+```json
+
+{
+    "common": {
+      "yourVariable": "this is example translation"
+    }
+}
+
+```
+
+You can then use  `yourVariable` from `common` namespace
+
 ## Folder structure
 ### Pages
 
@@ -291,6 +316,8 @@ src
     |_ PageName
         |_ components <== in case there is any component use only in this page
             |_ <!-- Your components -->
+        |_ locales
+            |_ <!-- Your i18n json files -->
         |_ PageName.tsx <== Your page main file
         |_ StyledPageName.ts <== for styled component if you think there're too much to fit in main file
 
@@ -307,6 +334,8 @@ src
     |_ ComponentName
         |_ ComponentName.tsx <== Your component main file
         |_ StyledPageName.ts <== for styled component if you think there're too much to fit in main file
+        |_ locales <= if needed
+            |_ <!-- Your i18n json files -->
 
 ```
 
