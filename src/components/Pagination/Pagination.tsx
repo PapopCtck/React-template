@@ -93,7 +93,6 @@ export const Pagination = ({
   useLayoutEffect(() => {
     if (currentPage < 1) {throw new Error('Page must be greater than 0');}
     if (pageRangeDisplayed < 1) {throw new Error('Page range must be greater than 0');}
-    if (count < 1) {throw new Error('count must be greater than 0');}
     if (pageRangeDisplayed < 3) {console.warn('pageRangeDisplayed < 3 can cause some unwanted behavior. Consider use 3 or more pageRangeDisplayed');}
   },[]);
 
@@ -188,11 +187,15 @@ export const Pagination = ({
   return (
     <Container>
       <Ul>
-        <Prev style={prevStyle} disabled={activePage === 1} onClick={prev}>{prevLabel}</Prev>
+        {
+          count > 0 && <Prev style={prevStyle} disabled={activePage === 1} onClick={prev}>{prevLabel}</Prev>
+        }
         {
           handleRenderPages()
         }
-        <Next style={nextStyle} disabled={activePage === count} onClick={next}>{nextLabel}</Next>
+        {
+          count > 0 && <Next style={nextStyle} disabled={activePage === count} onClick={next}>{nextLabel}</Next>
+        }
       </Ul>
     </Container>
   );
