@@ -6,6 +6,79 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <br />
 
+## Release v.2.0.0
+
+**NOTE: Please do not update storybook as current newer version use unsupported version sof babel-loader**
+
+**Dependency**
+
+- Added `framer-motion` as dependency
+
+**Core**
+
+- Added `ReduxData` commonInterface for any redux store data
+
+- Added `colors.ts` for centralized color variable
+
+- Update `theme.ts` to use `colors.ts` variable
+
+- Moved `GlobalStyle` to utils
+
+- Moved `CookieToken` to utils
+
+- Added `delayedApiCall` helper to `stores/utils.ts`
+
+- Added `LegacyTimePicker` component
+
+- Added `Pagination` component
+
+- Added `ProgressiveImage` component
+
+- Added `ReduxAlert` component
+
+- Added `Skeleton` component
+
+- Added `TextGradient` component
+
+- Added `UploadInput` component
+
+- Added `useWindowDimensions` and `useIntersectionObserver` hooks
+
+**Storybook**
+
+- Added `Colors` story
+
+- Added `Configuration` story
+
+- Added `Icons` story
+
+- Added `Libraries` story
+
+- Added `LegacyTimePicker` story
+
+- Added `Pagination` story
+
+- Added `ProgressiveImage` story
+
+- Added `ReduxAlert` story
+
+- Added `Skeleton` story
+
+- Added `TextGradient` story
+
+- Added `UploadInput` story
+
+- Added `Hooks` story
+
+- Updated all other stories
+
+**Bugfix**
+
+- Fix `ColorMix` function return slightly different color on index 6
+
+- Fix  refresh token inside `api` function in `stores/utils.ts`
+
+
 ## Release v.1.1.1
 
 - Added `@emotion/babel-plugin` as dev-dependency
