@@ -5,6 +5,13 @@ import { Card,Button } from '../../components';
 export default {
   title: 'Components/Card',
   component: Card,
+  parameters: {
+    docs: {
+      description: {
+        component: 'It\'s a Card',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = (args) => <Card {...args}>{args.children}</Card>;

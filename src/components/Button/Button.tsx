@@ -1,34 +1,38 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { ReactElement, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
 
-export interface IStyledButtonProps {
-  buttonType?: 'primary' | 'secondary' | 'link',
+export interface IStyledButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonType?: 'primary' | 'secondary' | 'link' | 'warning' | 'danger',
   size?: 'small' | 'medium' | 'large',
   backgroundColor? : string,
-  onClick?: () => void,
   type?: 'button' | 'submit' | 'reset',
+  block?: boolean,
 }
 
 export interface IButtonProps extends IStyledButtonProps {
   label?: string,
   children?: ReactNode,
-  className?: 'string',
+  className?: string,
 }
 
 export const StyledButton = styled('button')<IStyledButtonProps>(
-  css`
-    font-weight: 700;
+  props => css`
+    font-weight: ${props.theme.buttonFontWeight ?? '700'};
     border: 0;
-    border-radius: 3em;
+    border-radius: ${props.theme.borderRadiusBase};
     transition: all .3s;
     cursor: pointer;
-    display: inline-block;
+    display: ${props.block ? 'block' : 'inline-block'};
+    width: ${props.block ? '100%' : 'unset'};
     line-height: 1;
-    padding: 11px 20px;
+    padding: 10px 20px;
     font-size: 1rem;
-    :focus{
-      outline: none
+    :focus {
+      outline: none;
+    };
+    &:active {
+      transform: translateY(2px);
     }
   `, props => {
     let result = {
@@ -38,30 +42,70 @@ export const StyledButton = styled('button')<IStyledButtonProps>(
         result = {
           ...result,
           color: props.theme.textColorLight,
-          backgroundColor: props.theme.primaryColor,
+          background: props.theme.primaryColor,
+          boxShadow: props.theme.boxShadowButton,
+          '&:hover': {
+            background: props.theme.primaryHoverColor,
+          },
         };
         break;
       case 'secondary':
         result = {
           ...result,
           color: props.theme.textColor,
-          backgroundColor: 'transparent',
+          background: 'transparent',
           boxShadow: props.theme.boxShadowButton,
+          border: `1px solid ${props.theme.borderColorSecondary}`,
+          '&:hover': {
+            color: props.theme.primaryHoverColor,
+            borderColor: props.theme.primaryHoverColor,
+          },
         };
         break;
       case 'link':
         result = {
           ...result,
           color: props.theme.linkColor,
-          backgroundColor: 'transparent',
+          background: 'transparent',
+        };
+        break;
+      case 'warning':
+        result = {
+          ...result,
+          color: props.theme.textColor,
+          background: 'transparent',
+          boxShadow: props.theme.boxShadowButton,
+          border: `1px solid ${props.theme.borderColorBase}`,
+          '&:hover': {
+            color: props.theme.warningColor,
+            border: `1px solid ${props.theme.warningColor}`,
+          },
+        };
+        break;
+      case 'danger':
+        result = {
+          ...result,
+          color: props.theme.textColor,
+          background: 'transparent',
+          boxShadow: props.theme.boxShadowButton,
+          border: `1px solid ${props.theme.borderColorBase}`,
+          '&:hover': {
+            color: props.theme.errorColor,
+            border: `1px solid ${props.theme.errorColor}`,
+          },
         };
         break;
       default:
         result = {
           ...result,
           color: props.theme.textColor,
-          backgroundColor: 'transparent',
+          background: 'transparent',
           boxShadow: props.theme.boxShadowButton,
+          border: `1px solid ${props.theme.borderColorSecondary}`,
+          '&:hover': {
+            color: props.theme.primaryHoverColor,
+            borderColor: props.theme.primaryHoverColor,
+          },
         };
     } 
 

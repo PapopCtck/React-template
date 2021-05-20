@@ -7,6 +7,28 @@ export default {
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
+    buttonType: {
+      description: 'Choose between',
+    },
+    label: {
+      description: 'Text to display oin button',
+    },
+    size :{
+      description: 'Choose between',
+    },
+    type: {
+      description: 'Html button type',
+    },
+    block: {
+      description: 'Should button display at 100% width',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Click click',
+      },
+    },
   },
 } as Meta;
 
@@ -21,11 +43,24 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  buttonType: 'secondary',
 };
 
 export const Link = Template.bind({});
 Link.args = {
   buttonType: 'link',
+  label: 'Button',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  buttonType: 'warning',
+  label: 'Button',
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  buttonType: 'danger',
   label: 'Button',
 };
 

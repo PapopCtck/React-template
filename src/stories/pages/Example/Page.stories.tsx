@@ -3,10 +3,10 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Page, PageProps } from './Page';
-import * as HeaderStories from './components/Header.stories';
+import * as HeaderStories from '../../components/Header.stories';
 
 export default {
-  title: 'Example/Page',
+  title: 'Pages/Example',
   component: Page,
 } as Meta;
 

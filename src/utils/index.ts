@@ -11,3 +11,5 @@ export * from './Cookie/Cookie';
 export * from './Validate/Validate';
 export * from './Routes/Routes';
 export * from './ColorMix/ColorMix';
+export * from './GlobalStyle/GlobalStyle';
+export * from './CookieToken/CookieToken';

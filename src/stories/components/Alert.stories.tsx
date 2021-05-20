@@ -5,7 +5,38 @@ import { Alert, IAlert } from '../../components';
 export default {
   title: 'Components/Alert',
   component: Alert,
-  argTypes: {
+  argTypes:{
+    type:{
+      description: 'Type of alert. One of',
+    },
+    show:{
+      description: 'is alert currently showing',
+    },
+    closable:{
+      description: 'show close button at top right corner',
+    },
+    styleCloseBtn: {
+      description: 'Style for close button',
+    },
+    styleBanner: {
+      description: 'Style for alert banner',
+    },
+    duration: {
+      description: 'Duration before alert auto close',
+    },
+    absolute: {
+      description: 'Should alert position be absolute',
+    },
+    standalone: {
+      description: 'Is alert render in list',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Element for user notification.',
+      },
+    },
   },
 } as Meta;
 
@@ -25,4 +56,12 @@ Danger.args = {
   show: true,
   closable: true,
   children: 'Danger',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  type: 'warning',
+  show: true,
+  closable: true,
+  children: 'Warning',
 };

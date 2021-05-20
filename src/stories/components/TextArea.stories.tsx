@@ -6,6 +6,13 @@ import { TextArea, ITextArea } from '../../components';
 export default {
   title: 'Components/TextArea',
   component: TextArea,
+  parameters: {
+    docs: {
+      description: {
+        component: 'TextArea with optional range count',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<ITextArea> = (args) => <TextArea {...args} />;

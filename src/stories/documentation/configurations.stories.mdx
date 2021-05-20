@@ -1,0 +1,401 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Colors from '../assets/colors.svg';
+import Repo from '../assets/repo.svg';
+
+<Meta title="Documentation/Configurations" />
+
+<style>{`
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1EA7FD50;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  .link-item img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    flex: none;
+  }
+
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+`}</style>
+
+# Configurations
+
+<br />
+
+## Table of contents
+
+- ☢️ [CRACO](#craco)
+- 🌈 [Theme](#theme)
+  - 🎨 [Colors](#colors)
+  - 🌈 [Theming](#theming)
+  - 🌎 [Globalstyle](#global-style)
+  - 𝝖 [Fonts](#fonts)
+- ℇ [Constants](#constants)
+  - [Common Constants](#common-constants)
+  - [Common Interfaces](#common-interfaces)
+  - 🌏 [I18N](#i18n)
+- 📁 [Folder structure](#folder-structure)
+  - 📄 [Pages](#pages)
+  - 🧩 [Components](#components)
+  - ♻️ [Redux](#redux)
+  - 📕 [Stories](#stories)
+- ♻️ [Redux](#redux)
+- 📕 [Writing Stories](#writing-stories)
+
+## CRACO
+**C**reate **R**eact **A**pp **C**onfiguration **O**verride is an easy and comprehensible configuration layer for create-react-app.
+
+Get all the benefits of create-react-app **and** customization without using 'eject' by adding a single `craco.config.js` file at the root of your application and customize your eslint, babel, postcss configurations and many more.
+
+**You can read all available configs for CRACO at [Craco-Documentation](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#configuration-file)**
+
+## Theme
+Before you start to develop your app. You might want to config a `theme` and `colors` to help you get the right look for your app just a bit faster.
+
+To learn how, checkout the tutorial below.
+
+### Colors
+
+Colors is what made an app look good. But too many color can degrade your user experience significantly.
+
+By centralized all the colors , we can ensure that all colors in our application would be the same. Making it easier to develop and maintain.
+
+All colors in this template could be found at
+
+`src/themes/colors.ts`
+
+available through
+
+`props.theme.colors`
+
+or
+
+`import * as colors from '${relative path to src/theme/colors.ts}'`
+
+There're **13 base colors** with **10 level of [computer-generated](#why-using-computer-generated-colors) hue**
+
+    bluebase
+    purplebase
+    cyanbase
+    greenbase
+    magentabase
+    redbase
+    orangebase
+    yellowbase
+    volcanobase
+    geekbluebase
+    limebase
+    goldbase
+    greybase
+
+and **2 monochrome colors** with **6 level of manually selected hue**
+
+    white
+    black
+
+Note: Please **do not** use base colors directly. For base color, use `color6` instead.
+
+**Also available at**
+
+<a
+className="link-item"
+ href="/story/documentation-colors--page"
+>
+   <img src={Colors} alt="colors" />
+    <span>
+      <strong>Colors</strong>
+      All colors available.
+    </span>
+</a>
+
+### Why using Computer generated colors?
+
+While all color usually set in place by the design guideline before the beginning of development process.
+
+Still, We often times find ourself where we need to add a new color in development process.
+
+Although, this usually not a problem in a small project. It will still cause a lot of pain for other developer in the project to remember the new variable in the middle of the development process.
+
+Another problem is that as a developer we don't always know what our product would look like right whe we start the development process. Causing us to need to comeback and change the color later. 
+
+By using **customizable base color** and then generate color using algorithm, This method can simplify the process of setting up an application as you wouldn't need to know all the colors in advance and also help get the application up and running as quick as possible.
+While still remain **fully customizable** and **flexible**.
+
+All **13 base colors** will generate 10 different color by adjusting hue and saturation.
+
+While we would like to generate **2 monochrome colors** the same way we do with base colors, 
+we decided to left these out because we often get these colors specify for us right from the start as it usually the earliest color needed in a design system.
+
+### Theming
+
+Theme provide colors for included components and make it easier to swap set of colors. 
+
+All theme variable and it's description could be found at
+
+`src/themes/default.ts`
+
+available through
+
+`props.theme`
+
+If you wish to create a new theme you can do it by create a file
+
+`src/themes/newTheme.ts`
+
+then change ThemeProvider theme in `App.tsx` from
+
+```jsx
+
+  import defaultTheme from './themes/default';
+  // other imports
+
+  // ...
+  <ThemeProvider theme={defaultTheme}>
+    {/* ... */}
+    {/* Components */}
+    {/* ... */}
+  </ThemeProvider>
+
+```
+
+to
+
+```jsx
+
+  import newTheme from './themes/newTheme';
+  // other imports
+
+  // ...
+  <ThemeProvider theme={newTheme}>
+    {/* ... */}
+    {/* Components */}
+    {/* ... */}
+  </ThemeProvider>
+  
+```
+
+Dark mode could a.so be done this way.
+
+<br />
+
+### Global style
+
+All other global style and global style variable could config at 
+
+`src/utils/GlobalStyle/GlobalStyle.tsx`
+
+### Fonts
+
+For fonts to be import in global style, we need to first create a font import file.
+
+`src/utils/FontsImport/FontsImport.ts`
+
+```js
+
+import { css } from '@emotion/react';
+
+export default css`
+ @font-face {
+    font-family: 'YourFont';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('/fonts/Your-font.ttf');
+  }
+
+```
+
+then we can import fonts to global style by edit `App.tsx`
+
+```jsx
+
+  import { fontsImport } from './utils';
+
+  <GlobalStyle theme={defaultTheme} fontsImport={fontsImport} />
+
+```
+
+lastly, change `fontFamily` in `src/theme/YourTheme.ts`
+
+## Constants
+### Common Constants
+
+Constants that are commonly use between many page.
+
+available at 
+
+`src/common/commonConstant.ts`
+
+and use by
+
+```jsx
+
+import commonConstant from './common/commonConstant';
+
+```
+
+
+### Common Interfaces
+
+Similar to common constants, these are interfaces that are commonly use between many page.
+
+available at 
+
+`src/common/commonInterfaces.ts`
+
+and use by
+
+```jsx
+
+import { YourInterface } from '../../common/commonInterfaces';
+
+```
+
+## I18N
+
+Last constant that can be set if you use `i18n` version is .... well you guessed it `i18n`.
+
+Simply go to
+
+`src/i18n/locales`
+
+and place you common word inside
+
+`common.youLanguage.json`
+
+```json
+
+{
+    "common": {
+      "yourVariable": "this is example translation"
+    }
+}
+
+```
+
+You can then use  `yourVariable` from `common` namespace
+
+## Folder structure
+### Pages
+
+All page should structure as follow
+
+```
+src
+|_ pages
+    |_ index.ts
+    |_ PageName
+        |_ components <== in case there is any component use only in this page
+            |_ <!-- Your components -->
+        |_ locales
+            |_ <!-- Your i18n json files -->
+        |_ PageName.tsx <== Your page main file
+        |_ StyledPageName.ts <== for styled component if you think there're too much to fit in main file
+
+```
+
+### Components
+
+All component that are shared between page should structure as follow
+
+```
+src
+|_ components
+    |_ index.ts
+    |_ ComponentName
+        |_ ComponentName.tsx <== Your component main file
+        |_ StyledPageName.ts <== for styled component if you think there're too much to fit in main file
+        |_ locales <= if needed
+            |_ <!-- Your i18n json files -->
+
+```
+
+### Stories
+
+All story should replicate folder structure of `src` folder
+
+```
+stories
+|_ pages
+    |_ page story
+|_ components
+    |_ component story
+|_ documentation
+|_ assets
+
+```
+
+## Redux
+
+Redux configs are available in `src/stores`
+
+to create 1 api call, first you need to create action in `actions.ts`
+
+```js
+export const yourAction = (params): Action => ({
+  // action
+});
+
+```
+
+then we need to write [saga middleware](https://redux-saga.js.org/docs/api) in  `sagas.ts`
+
+```js
+  someMiddleware(Action.type, api),
+```
+
+last, we need to write reducer in `reducer.ts`
+
+```js
+const someReducer = (state = {},action: Action) => checkAction(state,action,Action.type);
+```
+
+and add it to `rootReducer`
+
+```js
+const rootReducer = combineReducers({
+  // ...others reducers
+  someReducer
+});
+
+```
+
+## Writing Stories
+To learn how to write story please visit.
+
+<a className="link-item" href="https://storybook.js.org/docs" target="_blank">
+    <img src={Repo} alt="repo" />
+    <span>
+      <strong>Storybook documentation</strong>
+      Configure, customize, and extend
+    </span>
+</a>

@@ -5,6 +5,27 @@ import { Select, ISelect, ICustomSelectProps } from '../../components';
 export default {
   title: 'Components/Select',
   component: Select,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Your choice, choose',
+      },
+    },
+  },
+  argTypes: {
+    block: {
+      description: 'Should input display at 100% width',
+    },
+    showSelect: {
+      description: 'Show checkbox in options',
+    },
+    allKeyword: {
+      description: 'keyword for all selected',
+    },
+    customCarret: {
+      description: 'custom carret element',
+    },
+  },
 } as Meta;
 
 const Template: Story<ISelect & ICustomSelectProps> = (args) => <Select {...args} />;

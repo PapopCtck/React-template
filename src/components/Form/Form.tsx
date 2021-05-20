@@ -1,13 +1,17 @@
-import { FormEvent, FormEventHandler, ReactElement, ReactNode, useState } from 'react';
+import { FormEvent, FormEventHandler, HTMLAttributes, ReactElement, useState } from 'react';
 import styled from '@emotion/styled';
 import { colorMix } from '../../utils';
 
-export interface IForm {
-  children?: ReactNode,
+interface IFormClassname {
   className?: string[],
+}
+export interface IFormBase extends Omit<HTMLAttributes<HTMLFormElement>,keyof IFormClassname> {
   handlesubmit?: FormEventHandler,
   customValidate?: boolean,
+  beforeValidate?: () => void,
 }
+
+export type IForm = IFormBase & IFormClassname;
 
 export const StyledForm = styled.form`
  &.was-validated {
@@ -48,6 +52,7 @@ export const Form = (props: IForm): ReactElement => {
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setValidated(true);
+    if (props.beforeValidate) {props.beforeValidate();}
     if (event.currentTarget.checkValidity() && !props.customValidate) {
       props.handlesubmit && props.handlesubmit(event);
     }

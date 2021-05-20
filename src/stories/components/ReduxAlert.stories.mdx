@@ -1,0 +1,132 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Gif from '../assets/reduxalert.gif'
+
+<Meta title="Components/Redux-Alert" />
+
+<style>{`
+  .gif{
+    text-align:center;
+  }
+  .tip {
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #E7FDD8;
+    color: #66BF3C;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .tip-wrapper {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  .tip.danger{
+    background: rgb(255, 241, 240);
+    color: rgb(255, 163, 158);
+  }
+`}</style>
+
+
+# Redux Alert
+
+While component like `Alert` can be useful even using as it is, Sometimes we just want to send alert without having to manually determine the component position.
+
+That's why we decided to develop `Redux Alert`. A component that can handle alert display for you so you don't need to use `Alert` manually.
+
+<br />
+
+<div className="gif">
+ <img src={Gif} alt="demo" width="600px" />
+</div>
+
+
+## Get Started
+
+First we need to place `ReduxAlert` somewhere.
+
+```jsx
+
+import { ReduxAlerts } from 'relative/path/to/components/Alert.ts';
+
+function App(): ReactElement {
+
+  <ThemeProvider theme={theme}>
+      <ReduxAlerts  />
+      {/* other components */}
+  </ThemeProvider>
+}
+
+```
+
+<div className="tip-wrapper">
+  <span className="tip">Note</span> <code>ReduxAlerts</code> component must be inside <code>ThemeProvider</code> as it is using <code>theme</code> for color
+</div>
+
+
+Then we need to create redux **action** and **reducer**
+
+### Action
+
+```jsx
+// stores/actions.ts
+
+import { IAlert } from '../components';
+
+export const setAlert = (payload:{message: string} | IAlert): Action => ({
+  type: Type.SAVE_DATA,
+  resTypes: Type.ALERT,
+  data: payload,
+});
+
+```
+
+### Reducer
+
+```jsx
+// stores/reducers.ts
+
+const alerts = (state = {}, action: Action) => checkAction(state, action, Type.ALERT);
+```
+
+You can also change state name by providing `stateName` prop to `ReduxAlert`
+
+```jsx
+
+     <ReduxAlerts stateName="stateName" />
+
+```
+
+Then
+
+```jsx
+// replace 'alerts' with your state name
+const stateName = (state = {}, action: Action) => checkAction(state, action, Type.ALERT);
+
+```
+
+
+### Usage
+
+Redux alert use `Alert` as it base component. 
+So we can pass [Alert props](?path=/docs/components-alert--success) ( except for **`children`**. we use **`message`** prop instead ) like we are using `Alert`.
+
+Trigger alert by writing `dispatch` action we created earlier
+
+```jsx
+
+dispatch(setAlert({
+  message: 'hello world',
+  type: 'success'
+}))
+
+```
+
+<div className="tip-wrapper">
+  <span className="tip danger">IMPORTANT</span> <code>message</code> must be use as <code>children</code> prop instead of using <code>children</code> prop directly.
+</div>
