@@ -6,10 +6,8 @@ import defaultTheme from './themes/default';
 import commonConstant from './common/commonConstant';
 import { history, ErrorBoundary, GlobalStyle } from './utils';
 import { Home } from './pages';
-import { useLineLiff } from './hooks';
 
 function App(): ReactElement {
-  useLineLiff();
   return (
     <div className="App">
       <GlobalStyle theme={defaultTheme} />
