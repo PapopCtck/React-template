@@ -2,7 +2,7 @@
  React Typescript Template
 </h1>
 
-<div style="text-align:center"><img alt="Logo" style="border-radius:50%" src="https://avatars.githubusercontent.com/u/10653386?v=4" width="20%" /></div>
+<div align="center"><img alt="Logo" style="border-radius:50%" src="https://avatars.githubusercontent.com/u/10653386?v=4" width="20%" /></div>
 <br/>
 <p align="center">Brought to you by <a href="https://github.com/PapopCtck">PapopCtck</a></p>
 <br/>
