@@ -64,6 +64,10 @@ interface ILabel extends Size{
   validated: boolean,
 }
 
+const Container = styled.div`
+  width: 100%;
+`;
+
 
 const Label = styled.label<ILabel>`
     display: inline-flex;
@@ -74,6 +78,7 @@ const Label = styled.label<ILabel>`
     border-radius: 8px;
     height: ${props => props.height};
     width: ${props => props.width};
+    max-width: 100%;
     transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
     border: 1px solid ${props => props.validated && props.error ? props.theme.errorColor : 'transparent'};
     &:hover,
@@ -86,8 +91,9 @@ const Label = styled.label<ILabel>`
 const PreviewImgContainer = styled.div<Size>`
     background: ${props => props.theme.disabledColor};
     border-radius: 8px;
-    height: ${props => `calc(${props.height} - 20px)`};
-    width: ${props => `calc(${props.width} - 20px)`};
+    height: ${props => props.height};
+    width: ${props => props.width};
+    max-width: 100%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -278,7 +284,7 @@ export const UploadInputSingle = ({
   const supportedFileExtensions = [...supportedImageExtensions, ...supportedVideoExtensions];
 
   return (
-    <div className={`input-container image-upload-container ${className}`} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDragOver={doNothing} onDrop={handleDrop}>
+    <Container className={`input-container image-upload-container ${className}`} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDragOver={doNothing} onDrop={handleDrop}>
       {
         label ?
           (value && !isEmpty(value) ?
@@ -290,7 +296,7 @@ export const UploadInputSingle = ({
         onChange={(e) => fileSelectedHandeler(e.target.files)}
         {...rest}
       />
-    </div >
+    </Container >
   );
 };
 
@@ -426,7 +432,7 @@ export const UploadInputMultiple = ({
   const supportedFileExtensions = [...supportedImageExtensions, ...supportedVideoExtensions];
 
   return (
-    <div className={`input-container image-upload-container ${className}`} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDragOver={doNothing} onDrop={handleDrop}>
+    <Container className={`input-container image-upload-container ${className}`} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDragOver={doNothing} onDrop={handleDrop}>
       {
         label ?
           (value && !isEmpty(value) ?
@@ -445,7 +451,7 @@ export const UploadInputMultiple = ({
         onChange={(e) => fileSelectedHandeler(e.target.files, e.target)}
         {...rest}
       />
-    </div >
+    </Container >
   );
 };
 
