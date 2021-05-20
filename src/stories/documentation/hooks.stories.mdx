@@ -1,0 +1,89 @@
+
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Hooks" />
+
+# Hooks
+
+These are [React hooks](https://reactjs.org/docs/hooks-intro.html) that are included in the template
+
+available at 
+
+`src/hooks`
+
+<br />
+
+## Table of contents
+
+- [useLineLiff](#uselineliff)
+- [useWindowDimensions](#usewindowdimensions)
+- [useIntersectionObserver](#useintersectionobserver)
+
+## useLineLiff
+
+A simple hook for `@line/liff` initialization
+
+### Usage
+
+Set `REACT_APP_LIFFID` inside `.env` then use `useLineLiff` inside `App.tsx`
+
+```jsx
+// App.tsx
+
+function App(): ReactElement {
+  useLineLiff();
+  return (
+    // you components
+  )
+}
+
+```
+
+## useWindowDimensions
+
+Hook that fire immediately after window size change
+
+### Usage
+
+```jsx
+function FunctionalComponent(): ReactElement {
+  const window = useWindowDimensions;
+  return (
+    <>
+    <div>
+      screen width: {window.width}px
+    </div>
+    <div>
+      screen height: {window.height}px
+    </div>
+  )
+}
+
+```
+
+## useIntersectionObserver
+
+Hook for detect intersection.
+
+For additional information, Please refer to  [Intersection Observer Api](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+### Usage
+
+```jsx
+function FunctionalComponent(): ReactElement {
+  const ref = useRef() as RefObject<HTMLDivElement>; //
+  useIntersectionObserver({
+    threshold = 0.1,
+    rootMargin = '0px',
+    target: ref,
+    onIntersect: yourCallbackFn,
+  });
+  return (
+    <div ref={ref}>
+      {/* your codes */}
+    </div>
+  )
+}
+
+```
