@@ -1,5 +1,6 @@
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react';
+import { XCircle } from 'react-feather';
 
 import { UploadInput, IUploadInput } from '../../components';
 
@@ -57,9 +58,13 @@ export default {
 } as Meta;
 
 const Template: Story<IUploadInput> = (args) => <UploadInput {...args} />;
+Template.parameters = {
+  jest: ['UploadInput.test.tsx'],
+};
 
 export const Single = Template.bind({});
 Single.args = {
+  deleteButton: <XCircle />,
   value: {
     selectedFile: 'https://picsum.photos/id/1018/500',
   },
@@ -68,6 +73,7 @@ Single.args = {
 export const Multiple = Template.bind({});
 Multiple.args = {
   multiple: true,
+  deleteButton: <XCircle />,
   value: [
     {
       selectedFile: 'https://picsum.photos/id/1018/180',

@@ -42,6 +42,9 @@ export default {
 } as Meta;
 
 const Template: Story<IOTPInput> = (args) => <OTPInput {...args} />;
+Template.parameters = {
+  jest: ['OTPInput.test.tsx'],
+};
 
 export const Simple = Template.bind({});
 Simple.args = {

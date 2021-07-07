@@ -39,10 +39,13 @@ export default {
 } as Meta;
 
 const Template: Story<IDynamicForm> = (args) => <DynamicForm {...args} />;
+Template.parameters = {
+  jest: ['DynamicForm.test.tsx'],
+};
 
 let data = [{ id: uuidv4(), 'value': {} }];
 
-const RenderTemplate = (props: IDynamicFormTemplate) => <Form>
+const RenderTemplate = (props: IDynamicFormTemplate) => <Form key={props.key}>
   <InputWithLength label={`input ${props.index}`}/>
 </Form>;
 
