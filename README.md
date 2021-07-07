@@ -112,10 +112,6 @@ Also reload if you make edits.
 
 Builds the storybook for production.
 
-### `yarn build-storybook`
-
-Builds the storybook for production.
-
 ### `yarn analyze`
 
 Run `webpack-bundle-analyzer` at `'build/static/js/*.js'` to show bundle size of built project.
