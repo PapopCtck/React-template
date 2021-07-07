@@ -41,6 +41,7 @@ Additionaly, To run storybook, run `yarn storybook` or `npm storybook`. **( ✅ 
  - documented with [storybook](https://storybook.js.org/docs/react/get-started/introduction)
  - styled with [emotion](https://emotion.sh/docs/introduction)
  - animate with [framer-motion](https://www.framer.com/api/motion/)
+ - testing with [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
 
 #### Additional library
 
@@ -71,6 +72,11 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn test:generate-output`
+
+Generate test results and output it to a file.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
