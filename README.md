@@ -129,6 +129,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 Learn how to write your own story in the [Storybook documentation](https://storybook.js.org/docs/react/get-started/introduction)
 
+Learn how to write your unit tests in the [@testing-library/react documentaition](https://testing-library.com/docs/react-testing-library/intro/)
+
 For additional usage of `@emotion` [@emotion documentation](https://emotion.sh/docs/introduction)
 
 For additional usage of `framer-motion` [framer-motion documentation](https://www.framer.com/api/motion/)
