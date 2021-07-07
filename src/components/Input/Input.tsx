@@ -29,7 +29,7 @@ interface IStyledInput extends Block {
 }
 
 export const Input = styled.input<IStyledInput>(props => `
-  padding: 10px;
+  padding: ${props.theme.spaces.pd2};
   border: 1px solid ${props.theme.borderColorBase};
   border-radius: ${props.theme.borderRadiusBase};
   outline: none;
@@ -42,21 +42,21 @@ export const Input = styled.input<IStyledInput>(props => `
 `,
 props => props.block && ({
   display: 'block',
-  margin: '10px 0',
+  margin: `${props.theme.spaces.mg3} 0`,
   width: '100%',
   boxSizing: 'border-box',
 }),
 props => props.pref && ({
-  paddingLeft: '40px', //prefix maxwidth + padding(left)
+  paddingLeft: '35px', //prefix maxwidth + padding(left)
 }),
 props => props.suff && ({
-  paddingRight: '40px', //suffixfix maxwidth + padding(right)
+  paddingRight: '35px', //suffixfix maxwidth + padding(right)
 }),
 );
 
 
 const InputContainer = styled.div`
-  margin: 10px 0;
+  margin: ${props => `${props.theme.spaces.mg3} 0`};
   position: relative;
   width: 100%;
 
@@ -71,7 +71,7 @@ const ErrorMessage = styled.div`
 `;
 
 const Label = styled.div`
- margin-bottom: 5px;
+ margin-bottom: ${props => props.theme.spaces.mg1};
 `;
 
 const PrefixIcon = styled.span`

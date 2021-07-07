@@ -73,9 +73,9 @@ const Label = styled.label<ILabel>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin: 0 5px 10px;
+    margin: ${props => `0 ${props.theme.spaces.mg1} ${props.theme.spaces.mg3}`};
     background: ${props => props.theme.disabledColor};
-    border-radius: 8px;
+    border-radius: ${props => props.theme.borderRadiusBase};
     height: ${props => props.height};
     width: ${props => props.width};
     max-width: 100%;
@@ -90,7 +90,7 @@ const Label = styled.label<ILabel>`
 
 const PreviewImgContainer = styled.div<Size>`
     background: ${props => props.theme.disabledColor};
-    border-radius: 8px;
+    border-radius: ${props => props.theme.borderRadiusBase};
     height: ${props => props.height};
     width: ${props => props.width};
     max-width: 100%;
@@ -155,7 +155,8 @@ const PreviewImg = styled.img<Image>`
 
 const PreviewImagesContainer = styled.div`
    .preview-image-container {
-      margin: 0 5px 10px;
+      box-sizing: border-box;
+      margin: ${props => `0 ${props.theme.spaces.mg1} ${props.theme.spaces.mg3}`};
       vertical-align: top;
     }
 `;
@@ -277,7 +278,7 @@ export const UploadInputSingle = ({
         </video>
       </PreviewImgContainer> : <PreviewImgContainer width={width} height={height} className="preview-image-container">
         {deleteButton && <DeleteImageButton className="del-image" onClick={() => handleDelete()}>{deleteButton}</DeleteImageButton>}
-        <PreviewImg objectFit={objectFit} className="preview-image" src={val.selectedFile} />
+        <PreviewImg objectFit={objectFit} className="preview-image" alt="preview" src={val.selectedFile} />
       </PreviewImgContainer>
   );
 
@@ -425,7 +426,7 @@ export const UploadInputMultiple = ({
         </video>
       </PreviewImgContainer> : <PreviewImgContainer width={width} height={height} key={idx} className="preview-image-container">
         {deleteButton && <DeleteImageButton className="del-image" onClick={() => handleDelete(val)}>{deleteButton}</DeleteImageButton>}
-        <PreviewImg objectFit={objectFit} className="preview-image" src={val.selectedFile} />
+        <PreviewImg objectFit={objectFit} className="preview-image" alt={`preview-${idx}`} src={val.selectedFile} />
       </PreviewImgContainer>
   );
 

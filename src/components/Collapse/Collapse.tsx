@@ -35,7 +35,7 @@ const CollapseHeader = styled.div<Standalone>(`
 `,props => ({
   backgroundColor: `${props.theme.componentBackgroundColor}`,
   boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.04)',
-  padding: '15px',
+  padding: props.theme.spaces.pd4,
 }));
 
 const Title = styled.span`
@@ -72,7 +72,7 @@ props => props.active && ({
 );
 
 const ContentContainer = styled.div`
-  margin: 15px;
+  margin: ${props => props.theme.spaces.mg4};
 `;
 
 export const Collapse = ({ standalone = false,title,children, customSuffix, isCollapsed, onClick , seperator = true, noContent = false, containerClassName }: ICollapse): ReactElement => {

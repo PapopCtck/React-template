@@ -16,6 +16,9 @@ export default {
 } as Meta;
 
 const Template: Story<ITextArea> = (args) => <TextArea {...args} />;
+Template.parameters = {
+  jest: ['TextArea.test.tsx'],
+};
 
 export const Simple = Template.bind({});
 Simple.args = {

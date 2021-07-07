@@ -35,7 +35,7 @@ export const SelectCarret = styled.span`
 export const SelectContainer = styled.div<ISelectContainer>(props => `
  text-align: center;
   position: relative;
-  padding: 10px;
+  padding: ${props.theme.spaces.pd3};
   border: 1px solid ${props.theme.borderColorBase};
   border-radius: ${props.theme.borderRadiusBase};
   outline: none;
@@ -77,12 +77,12 @@ export const SelectOptionContainer = styled.div`
     z-index: 1000;
     top: calc(1em + 28px);
     left: 0;
-    padding-bottom: 20px;
+    padding-bottom: ${props => props.theme.spaces.pd5};
 `;
 
 export const SelectOptions = styled.ul`
       margin: 0;
-      padding: 10px;
+      padding: ${props => props.theme.spaces.pd3};
       text-align: left;
       width: 100%;
       background-color: ${props => props.theme.componentBackgroundColor};
@@ -94,7 +94,7 @@ export const SelectOptions = styled.ul`
 
 export const SelectOption = styled.li`
         list-style-type: none;
-        padding: 6px 10px;
+        padding: ${props => `${props.theme.spaces.pd2} ${props.theme.spaces.pd3}`};
         background: ${props => props.theme.componentBackgroundColor};
         cursor: pointer;
         display: flex;

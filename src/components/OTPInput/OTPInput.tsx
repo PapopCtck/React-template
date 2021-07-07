@@ -113,7 +113,7 @@ export const StyledOTPInputContainer = styled.form`
   input {
     display: inline-block;
     width: 40px;
-    margin-right: 5px;
+    margin-right: ${props => props.theme.spaces.mg1};
     text-align: center;
     transition: border 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: none;
@@ -188,14 +188,14 @@ export const StyledOTPInputContainer = styled.form`
   .invalid-message {
     color: #cb5454;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: ${props => props.theme.spaces.mg1};
   }
 
   .link {
     color: #537ce5;
     text-decoration: underline;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: ${props => props.theme.spaces.mg3};
     cursor: pointer;
     &.disabled {
       opacity: 0.5;
@@ -207,7 +207,7 @@ export const StyledOTPInputContainer = styled.form`
 `;
 
 export const StyledCountdown = styled.div`
-  margin-top: 5px;
+  margin-top: ${props => props.theme.spaces.mg1};
   font-size: 12px;
   color: #cb5454;
 `;
@@ -448,7 +448,7 @@ export const OTPInput = forwardRef(({ onChange, count = 0,invalid,id, onLastInpu
     const returnArr = otpValues.map((_,index) => {
       const focus = activeInput === index;
       const blur = blurInput === index;
-      return React.createElement(Input ,{ otpValues,index, focus,blur,count,loading, handleOnFocus, handleOnKeyDown,handleOnChange, handleOnPaste });
+      return React.createElement(Input ,{ otpValues,index, focus,blur,count,loading, handleOnFocus, handleOnKeyDown,handleOnChange, handleOnPaste, key: index });
     });
     return returnArr;
   };

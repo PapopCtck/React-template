@@ -32,10 +32,10 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li<Li>(
-  () => css`
+  props => css`
     display: inline-flex;
     border: 1px solid;
-    padding: 0.5rem 0.75rem;
+    padding: ${props.theme.spaces.pd2} ${props.theme.spaces.pd3};
     margin-left: -1px;
     cursor: pointer;
     position: relative;
@@ -129,7 +129,7 @@ export const Pagination = ({
         if (activePage - 1 !== marginPagesDisplayed + halfDisplayRange){
           // >>> add breakLabel to front
           pagesButtons.push(
-            <Li>{breakLabel}</Li>,
+            <Li key="breaklabel-front">{breakLabel}</Li>,
           );
         }
       } 
@@ -162,7 +162,7 @@ export const Pagination = ({
         if (count - activePage !== marginPagesDisplayed + halfDisplayRange){
           // >>> add breakLabel to back
           pagesButtons.push(
-            <Li>{breakLabel}</Li>,
+            <Li key="breaklabel-back">{breakLabel}</Li>,
           );
         }
         // >> add margin page to the back

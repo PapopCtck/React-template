@@ -13,7 +13,7 @@ export const TextAreaContainer = styled.div`
 `;
 
 const Label = styled.div`
-margin-bottom: 5px;
+margin-bottom: ${props => props.theme.spaces.mg1};
 `;
 
 const Textarea = styled.textarea`
@@ -22,7 +22,7 @@ const Textarea = styled.textarea`
     border-color: ${props => props.theme.borderColorBase};
     border-radius: ${props => props.theme.borderRadiusBase};
     font-family: ${props => props.theme.fontFamily};
-    padding: 5px;
+    padding: ${props => props.theme.spaces.pd1};
     font-size: ${props => props.theme.fontSizeBase};
     &:focus {
       border: solid 1px ${props => props.theme.primaryColor};

@@ -44,6 +44,9 @@ export default {
 } as Meta;
 
 const Template: Story<IPagination> = (args) => <Pagination {...args} />;
+Template.parameters = {
+  jest: ['Pagination.test.tsx'],
+};
 
 export const Simple = Template.bind({});
 Simple.args = {

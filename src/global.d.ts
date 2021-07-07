@@ -1,9 +1,11 @@
 import '@emotion/react';
 import * as colors from './themes/colors';
+import * as spaces from './themes/spaces';
 
 declare module '@emotion/react' {
   export interface Theme {
     colors: typeof colors,
+    spaces: typeof spaces,
     primaryColor: string,
     primaryHoverColor: string,
     linkColor: string,

@@ -38,6 +38,10 @@ const Template: Story<IProgressiveImage> = (args) => <div style={{ width: '500px
   <ProgressiveImage {...args} />;
 </div>;
 
+Template.parameters = {
+  jest: ['ProgressiveImage.test.tsx'],
+};
+
 export const Simple = Template.bind({});
 Simple.args = {
   src: 'https://picsum.photos/id/1018/500',

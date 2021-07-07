@@ -15,7 +15,7 @@ export const StyledHeader = styled.header`
   .wrapper {
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 15px 20px;
+    padding: ${props => `${props.theme.spaces.pd4} ${props.theme.spaces.pd5}`};
     display: flex;
     align-items: center;
   }
@@ -29,7 +29,7 @@ export const StyledHeader = styled.header`
     font-weight: 900;
     font-size: 20px;
     line-height: 1;
-    margin: 6px 0 6px 10px;
+    margin: ${props => `${props.theme.spaces.mg3} 0 ${props.theme.spaces.mg3} ${props.theme.spaces.mg5}`};
     display: inline-block;
     vertical-align: top;
   }
@@ -39,7 +39,7 @@ export const StyledHeader = styled.header`
   }
 
   button + button {
-    margin-left: 10px;
+    margin-left: ${props => props.theme.spaces.mg3};
   }
 `;
 

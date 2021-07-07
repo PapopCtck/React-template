@@ -42,6 +42,9 @@ export default {
 } as Meta;
 
 const Template: Story<IAvatar> = (args) => <Avatar {...args} />;
+Template.parameters = {
+  jest: ['Avatar.test.tsx'],
+};
 
 export const Loading = Template.bind({});
 Loading.args = {

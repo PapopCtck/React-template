@@ -37,12 +37,12 @@ export const StyledAlert = styled(motion.div)<IStyledAlert>(props => ({
   borderRadius: '4px',
   width: 'fit-content',
   minWidth: '200px',
-  margin: '15px auto',
+  margin: `${props.theme.spaces.mg3} auto`,
   fontSize: props.theme.fontSizeBase,
   position: 'relative',
 }),
 props => props.show && ({
-  padding: '10px 15px',
+  padding: `${props.theme.spaces.pd2} ${props.theme.spaces.pd4}`,
   maxHeight: 'fit-content',
 }),
 props => props.absolute && ({
@@ -65,7 +65,7 @@ const Close = styled(X)`
 
 const Icon = styled.span`
   font-size: 0;
-  margin-right: 10px;
+  margin-right: ${props => props.theme.spaces.mg3};
 `;
 
 const AlertContent = styled.div`
