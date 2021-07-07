@@ -1,8 +1,10 @@
 import * as colors from './colors';
+import * as spaces from './spaces';
 import { setAlpha } from '../utils';
 
 export default {
   colors: colors,
+  spaces: spaces,
   primaryColor: colors.blue6, // primary color for all components
   primaryHoverColor: colors.blue7, // if element with primary color is hoverable
   linkColor: colors.blue6, // link color
