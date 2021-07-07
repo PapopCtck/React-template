@@ -26,7 +26,7 @@ export const StyledButton = styled('button')<IStyledButtonProps>(
     display: ${props.block ? 'block' : 'inline-block'};
     width: ${props.block ? '100%' : 'unset'};
     line-height: 1;
-    padding: 10px 20px;
+    padding: ${props.theme.spaces.pd2} ${props.theme.spaces.pd5};
     font-size: 1rem;
     :focus {
       outline: none;
@@ -115,21 +115,21 @@ export const StyledButton = styled('button')<IStyledButtonProps>(
           result = {
             ...result,
             fontSize: '0.85rem',
-            padding: '10px 16px',
+            padding: `${props.theme.spaces.pd3} ${props.theme.spaces.pd4}`,
           };
           break;
         case 'medium':
           result = {
             ...result,
             fontSize: '1rem',
-            padding: '11px 20px',
+            padding: `${props.theme.spaces.pd3} ${props.theme.spaces.pd5}`,
           };
           break;
         case 'large':
           result = {
             ...result,
             fontSize: '1.15rem',
-            padding: '12px 24px',
+            padding: `${props.theme.spaces.pd3} ${props.theme.spaces.pd5}`,
           };
           break;
         default:

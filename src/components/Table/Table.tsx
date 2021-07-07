@@ -5,7 +5,7 @@ export const Table = styled.table`
   width: 100%;
   thead {
     th {
-      padding: 5px 20px;
+      padding: ${props => `${props.theme.spaces.pd1} ${props.theme.spaces.pd5}`};
       font-weight: 500;
       white-space: nowrap;
       background-color: ${props => props.theme.baseBackgroundColor};
@@ -19,7 +19,7 @@ export const Table = styled.table`
         background-color: ${props => props.theme.baseBackgroundColor};
       }
       td {
-        padding: 20px 20px;
+        padding:${props => `${props.theme.spaces.pd4} ${props.theme.spaces.pd4}`};
         color: ${props => props.theme.textColor};
         i {
           color: ${props => props.theme.textColor};

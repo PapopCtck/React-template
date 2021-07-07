@@ -42,7 +42,7 @@ export const StyledProgrssBarContianer = styled.div<IStyledProgrssBarContianer>`
     position: relative;
     z-index: 1;
     font-size: 12px;
-    margin-right: 8px;
+    margin-right: ${props => props.theme.spaces.mg2};
     color: ${props => props.theme.textColorSecondary};
   }
 `;

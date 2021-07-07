@@ -26,7 +26,7 @@ export interface IDynamicFormTemplate {
   onChange?: (value: Record<string,unknown>,isError: boolean) => void, 
   onClickDelete?: () => void,
   data?: Array<IDynamicFormData>,
-  keys?: string, 
+  key?: string, 
   index?: string, 
   customFunction?: Record<string,() => void>, 
   error?: Record<string,unknown>,
@@ -35,7 +35,7 @@ export interface IDynamicFormTemplate {
 
 export const StyledDynamicFormContainer = styled.div`
   .dynamicform-input {
-    margin: 15px 0;
+    margin: ${props => props.theme.spaces.mg4} 0;
     .input-container {
       display: inline-block;
     }
@@ -103,7 +103,7 @@ export const DynamicForm = (props: IDynamicForm): ReactElement => {
     const onClickDelete = () => handleDelete(val);
     const data = props?.data?.find(data => data.id === val)?.value;
     const error = props?.data?.find(data => data.id === val)?.error;
-    return React.cloneElement(props.template, { onChange, onClickDelete, data, keys:val, index, customFunction, error, edit });
+    return React.cloneElement(props.template, { onChange, onClickDelete, data, key:val, index, customFunction, error, edit });
   });
 
   return (

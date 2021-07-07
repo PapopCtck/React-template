@@ -22,8 +22,8 @@ export interface ICheckbox {
 export const StyledCheckboxContainer = styled.div<IStyledCheckbox>`
   display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 12px;
+  padding-left: ${props => props.theme.spaces.pd6};
+  margin-bottom: ${props => props.theme.spaces.mg3};
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -76,7 +76,7 @@ export const StyledCheckboxContainer = styled.div<IStyledCheckbox>`
 export const StyledBoxCheckboxContainer = styled.div`
   position: relative;
     label {
-      margin-left: 25px;
+      margin-left: ${props => props.theme.spaces.mg5};
       color: ${props => props.theme.textColor};
       display: inline-block;
     }

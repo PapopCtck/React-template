@@ -44,10 +44,10 @@ export type IDatePicker = IDatePickerBase & IDatePickerCustomOnchange;
 export const StyledDatePickerContainer = styled('div')<IStyledDatePickerContainer>(
   props => css`
   .label{
-    margin-bottom: 5px;
+    margin-bottom: ${props.theme.spaces.mg1};
   }
   input {
-    padding: 10px;
+    padding: ${props.theme.spaces.pd3};
     border: 1px solid ${props.theme.borderColorBase};
     border-radius: ${props.theme.borderRadiusBase};
     outline: none;
@@ -388,7 +388,7 @@ const LTSelect = styled.select`
       text-align: center;
       text-align-last: center;
       border: 1px solid ${props => colorMix(props.theme.borderColorBase,9)};
-      padding: 8px 10px;
+      padding: ${props => `${props.theme.spaces.pd2} ${props.theme.spaces.pd3}`};
       border-radius: ${props => props.theme.borderRadiusBase};
       transition: .3s all;
       background: ${props => props.theme.componentBackgroundColor};
