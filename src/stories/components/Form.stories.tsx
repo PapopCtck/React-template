@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 
-import { Form, IForm, InputWithLength, Button } from '../../components';
+import { Form, IForm, InputWithLength, Button } from '@/components';
 
 export default {
   title: 'Components/Form',

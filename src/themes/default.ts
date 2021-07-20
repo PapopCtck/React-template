@@ -1,6 +1,6 @@
 import * as colors from './colors';
 import * as spaces from './spaces';
-import { setAlpha } from '../utils';
+import { setAlpha } from '@/utils';
 
 export default {
   colors: colors,

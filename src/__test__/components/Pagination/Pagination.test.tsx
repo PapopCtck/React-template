@@ -1,7 +1,7 @@
-import { render, waitFor } from '../../test-utils';
+import { render, waitFor } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 
-import { Pagination } from '../../../components';
+import { Pagination } from '@/components';
 
 
 test('render without crash',() => {

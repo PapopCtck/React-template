@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Alert, IAlert } from '../../components';
+import { Alert, IAlert } from '@/components';
 
 export default {
   title: 'Components/Alert',

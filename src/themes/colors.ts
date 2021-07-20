@@ -1,4 +1,4 @@
-import { colorMix } from '../utils';
+import { colorMix } from '@/utils';
 
 export const white = '#fff';
 export const white2 = '#fafafa';

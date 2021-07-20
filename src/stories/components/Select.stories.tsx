@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import { Select, ISelect, ICustomSelectProps } from '../../components';
+import { Select, ISelect, ICustomSelectProps } from '@/components';
 
 export default {
   title: 'Components/Select',

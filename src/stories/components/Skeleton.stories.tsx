@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import { Skeleton,ISkeleton } from '../../components';
+import { Skeleton,ISkeleton } from '@/components';
 
 export default {
   title: 'Components/Skeleton',

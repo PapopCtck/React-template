@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Collapse, ICollapse } from '../../components';
+import { Collapse, ICollapse } from '@/components';
 
 export default {
   title: 'Components/Collapse',

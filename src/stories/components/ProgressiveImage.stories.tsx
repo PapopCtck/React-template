@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import { ProgressiveImage, IProgressiveImage } from '../../components';
+import { ProgressiveImage, IProgressiveImage } from '@/components';
 
 export default {
   title: 'Components/ProgressiveImage',

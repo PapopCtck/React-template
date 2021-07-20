@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import { Pagination, IPagination } from '../../components';
+import { Pagination, IPagination } from '@/components';
 
 export default {
   title: 'Components/Pagination',

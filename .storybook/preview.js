@@ -11,8 +11,8 @@ export const parameters = {
 import { ThemeProvider } from '@emotion/react';
 import { withTests } from '@storybook/addon-jest';
 
-import { GlobalStyle } from "../src/utils";
-import defaultTheme from '../src/themes/default';
+import { GlobalStyle } from "@/utils";
+import defaultTheme from '@/themes/default';
 
 import results from 'test-results/.jest-results.json';
 

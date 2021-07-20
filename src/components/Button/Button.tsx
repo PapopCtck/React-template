@@ -1,6 +1,6 @@
+import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
 
 export interface IStyledButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'primary' | 'secondary' | 'link' | 'warning' | 'danger',

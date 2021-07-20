@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import { InputWithLength, IInputWithLength, Form, Button } from '../../components';
+import { InputWithLength, IInputWithLength, Form, Button } from '@/components';
 
 export default {
   title: 'Components/InputWithLength',

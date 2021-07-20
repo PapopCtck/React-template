@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { DynamicForm, IDynamicForm, InputWithLength, Form, IDynamicFormTemplate } from '../../components';
+import { DynamicForm, IDynamicForm, InputWithLength, Form, IDynamicFormTemplate } from '@/components';
 
 export default {
   title: 'Components/DynamicForm',

@@ -2,7 +2,7 @@
 import { Story, Meta } from '@storybook/react';
 import { XCircle } from 'react-feather';
 
-import { UploadInput, IUploadInput } from '../../components';
+import { UploadInput, IUploadInput } from '@/components';
 
 export default {
   title: 'Components/UploadInput',

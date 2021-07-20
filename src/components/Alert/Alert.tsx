@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { AnimatePresence,motion } from 'framer-motion'; 
 import { v4 as uuidv4 } from 'uuid';
 
-import { colorMix } from '../../utils';
-import { State } from '../..';
+import { colorMix } from '@/utils';
+import { State } from '@';
 
 export interface IAlert {
   className?: string,

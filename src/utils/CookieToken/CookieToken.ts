@@ -1,4 +1,4 @@
-import commonConstant from '../../common/commonConstant';
+import commonConstant from '@/common/commonConstant';
 import { createCookie, getCookie, deleteCookie } from '../Cookie/Cookie';
 
 const createCookieToken = (value: string, hr?: number): string | null => createCookie(commonConstant.cookieToken, value, hr);

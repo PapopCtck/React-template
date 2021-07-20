@@ -1,7 +1,7 @@
-import { fireEvent, render } from '../../test-utils';
+import { fireEvent, render } from 'test-utils';
 
-import { IDynamicForm } from '../../../components';
-import { Simple } from '../../../stories/components/DynamicForm.stories';
+import { IDynamicForm } from '@/components';
+import { Simple } from '@/stories/components/DynamicForm.stories';
 
 test('render without crash',() => {
   const { getByRole } = render(<Simple {...Simple.args as IDynamicForm} />);

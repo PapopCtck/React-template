@@ -1,6 +1,6 @@
 import { MouseEventHandler, ReactElement, ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { colorMix } from '../../utils';
+import { colorMix } from '@/utils';
 
 export interface IStyledCheckbox {
   borderColor?: string

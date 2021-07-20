@@ -2,8 +2,8 @@ import liff from '@line/liff';
 
 import { Action } from './interfaces';
 import Type from './types';
-import commonConstant from '../common/commonConstant';
-import { UnPromise } from '../common/commonInterfaces';
+import commonConstant from '@/common/commonConstant';
+import { UnPromise } from '@/common/commonInterfaces';
 
 
 export const fetchGetData = (): Action => ({

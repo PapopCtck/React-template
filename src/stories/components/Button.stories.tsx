@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Button, IButtonProps } from '../../components';
+import { Button, IButtonProps } from '@/components';
 
 export default {
   title: 'Components/Button',

@@ -1,7 +1,8 @@
 import { Component, ReactNode } from 'react';
-import { Header } from '../../components';
-
 import { WithTranslation, withTranslation } from 'react-i18next';
+
+import { Header } from '@/components';
+
 class Home extends Component<WithTranslation> {
   render(): ReactNode {
     const { t } = this.props;

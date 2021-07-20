@@ -76,7 +76,7 @@ Then we need to create redux **action** and **reducer**
 ```jsx
 // stores/actions.ts
 
-import { IAlert } from '../components';
+import { IAlert } from '@/components';
 
 export const setAlert = (payload:{message: string} | IAlert): Action => ({
   type: Type.SAVE_DATA,

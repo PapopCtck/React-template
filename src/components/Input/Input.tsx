@@ -1,7 +1,7 @@
 import { ChangeEvent, ChangeEventHandler, FocusEventHandler, forwardRef, ReactElement, ReactNode, Ref, useState } from 'react';
 import styled from '@emotion/styled';
 
-import { colorMix } from '../../utils';
+import { colorMix } from '@/utils';
 
 interface Block {
   block?: boolean,

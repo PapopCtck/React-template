@@ -1,7 +1,7 @@
-import { render } from '../test-utils';
+import { render } from 'test-utils';
 import { Suspense } from 'react';
 
-import { Home } from '../../pages';
+import { Home } from '@/pages';
 import { setupI18nMock } from '../__mocks__/MockReactI18n';
 
 setupI18nMock();
