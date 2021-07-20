@@ -1,5 +1,5 @@
-import { render } from '../../test-utils';
-import { Alert } from '../../../components';
+import { render } from 'test-utils';
+import { Alert } from '@/components';
 
 beforeEach(() => {
   jest.useFakeTimers();

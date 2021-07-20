@@ -1,7 +1,7 @@
-import { render } from '../../test-utils';
+import { render } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 
-import { InputWithLength } from '../../../components';
+import { InputWithLength } from '@/components';
 
 test('render without crash',() => {
   const { getByRole } = render(<InputWithLength />);

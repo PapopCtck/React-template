@@ -1,8 +1,8 @@
-import { render } from '../../test-utils';
+import { render } from 'test-utils';
 import { act } from 'react-dom/test-utils';
-import { Avatar, IAvatar } from '../../../components';
+import { Avatar, IAvatar } from '@/components';
 
-import { Image } from '../../../stories/components/Avatar.stories';
+import { Image } from '@/stories/components/Avatar.stories';
 
 import { setupIntersectionObserverMock } from '../../__mocks__/MockIntersectionObserver';
 

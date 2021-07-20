@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 
-import { colorMix } from '../../utils';
+import { colorMix } from '@/utils';
 
 export interface IStyledProgrssBarContianer {
   backgroundColor: string,

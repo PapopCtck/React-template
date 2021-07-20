@@ -1,7 +1,7 @@
 import { CSSProperties, MouseEventHandler, ReactElement, RefObject, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 
-import { useIntersectionObserver } from '../../hooks';
+import { useIntersectionObserver } from '@/hooks';
 
 export interface IProgressiveImage {
   src?: string,

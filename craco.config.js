@@ -3,6 +3,7 @@ const zlib = require('zlib');
 
 const CompressionPlugin = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CracoAlias = require('craco-alias');
 
 const plugins = [
   new CompressionPlugin({
@@ -32,6 +33,16 @@ module.exports = function () {
     plugins.push(new BundleAnalyzerPlugin());
   }
   return {
+    plugins: [
+      {
+        plugin: CracoAlias,
+        options: {
+          source: 'tsconfig',
+          baseUrl: './src',
+          tsConfigPath: './tsconfig.paths.json',
+        },
+      },
+    ],
     babel: {
       plugins: ['@emotion/babel-plugin'],
     },

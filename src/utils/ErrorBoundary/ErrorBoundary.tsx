@@ -1,7 +1,7 @@
 import { Component, ErrorInfo } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import commonConstant from '../../common/commonConstant';
+import commonConstant from '@/common/commonConstant';
 
 class ErrorBoundary extends Component<RouteComponentProps> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {

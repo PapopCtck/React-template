@@ -1,7 +1,7 @@
-import { render } from '../../test-utils';
+import { render } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 
-import { TextArea } from '../../../components';
+import { TextArea } from '@/components';
 
 test('render without crash',() => {
   const { getByRole } = render(<TextArea />);

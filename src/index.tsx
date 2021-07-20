@@ -1,13 +1,12 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
 
-import configureStore from './stores/config';
+import configureStore from '@/stores/config';
 
-import './i18n';
+import '@/i18n';
 
 const store = configureStore();
 

@@ -1,5 +1,5 @@
-import { act, fireEvent, render } from '../../test-utils';
-import { Simple } from '../../../stories/components/ProgressiveImage.stories';
+import { act, fireEvent, render } from 'test-utils';
+import { Simple } from '@/stories/components/ProgressiveImage.stories';
 import { setupIntersectionObserverMock } from '../../__mocks__/MockIntersectionObserver';
 
 const construct = jest.fn();

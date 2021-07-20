@@ -4,9 +4,9 @@ import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { ChevronDown } from 'react-feather';
-import { colorMix } from '../../utils';
+import { colorMix } from '@/utils';
 
-import commonConstant from '../../common/commonConstant';
+import commonConstant from '@/common/commonConstant';
 
 import 'react-datepicker/dist/react-datepicker.css';
 

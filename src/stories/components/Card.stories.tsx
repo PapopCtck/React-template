@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Card,Button } from '../../components';
+import { Card,Button } from '@/components';
 
 export default {
   title: 'Components/Card',

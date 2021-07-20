@@ -2,8 +2,8 @@ import { RefObject, useLayoutEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import liff from '@line/liff';
 
-import { setProfile } from '../stores/actions';
-import commonConstant from '../common/commonConstant';
+import { setProfile } from '@/stores/actions';
+import commonConstant from '@/common/commonConstant';
 
 export function useLineLiff(): void {
   const dispatch = useDispatch();

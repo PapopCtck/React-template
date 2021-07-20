@@ -1,6 +1,6 @@
 import { FormEvent, FormEventHandler, HTMLAttributes, ReactElement, useState } from 'react';
 import styled from '@emotion/styled';
-import { colorMix } from '../../utils';
+import { colorMix } from '@/utils';
 
 interface IFormClassname {
   className?: string[],

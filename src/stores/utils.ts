@@ -1,7 +1,7 @@
 import { put, delay, call } from 'redux-saga/effects';
 
-import { createCookieToken, deleteCookieToken, getCookieToken } from '../utils';
-import commonConstant from '../common/commonConstant';
+import { createCookieToken, deleteCookieToken, getCookieToken } from '@/utils';
+import commonConstant from '@/common/commonConstant';
 import { Action, Types } from './interfaces';
 
 const asyncTypes = {

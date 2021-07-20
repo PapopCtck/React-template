@@ -1,5 +1,6 @@
-import commonConstant from '../../common/commonConstant';
-import { validateHTTPS, validateHaveCookieName, history } from '..';
+import commonConstant from '@/common/commonConstant';
+import { validateHTTPS, validateHaveCookieName } from '../Validate/Validate';
+import history from '../History/History';
 
 export const createCookie = (name: string, value: string, hr?: number): string | null => {
   try {

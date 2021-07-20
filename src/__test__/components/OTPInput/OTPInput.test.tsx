@@ -1,7 +1,7 @@
-import { render } from '../../test-utils';
+import { render } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 
-import { OTPInput } from '../../../components';
+import { OTPInput } from '@/components';
 
 test('render without crash',() => {
   render(<OTPInput count={4} />);

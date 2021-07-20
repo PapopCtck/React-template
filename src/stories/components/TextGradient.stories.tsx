@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { HTMLAttributes } from 'react';
 
-import { TextGradient } from '../../components';
+import { TextGradient } from '@/components';
 
 export default {
   title: 'Components/TextGradient',

@@ -1,7 +1,7 @@
-import { render } from '../../test-utils';
+import { render } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 
-import { UploadInput } from '../../../components';
+import { UploadInput } from '@/components';
 
 window.URL.createObjectURL = jest.fn(() => 'https://picsum.photos/id/1018/500');
 

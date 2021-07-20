@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { CustomDatePicker, IDatePicker } from '../../components';
+import { CustomDatePicker, IDatePicker } from '@/components';
 
 export default {
   title: 'Components/DatePicker',
