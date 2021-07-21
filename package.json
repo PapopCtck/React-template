@@ -32,6 +32,7 @@
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=__test-results__/.jest-results.json --watchAll=false",
     "setup": "mkdir -p __test-results__",
+    "prestorybook": "npm run setup & npm run test:generate-output",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
