@@ -14,6 +14,7 @@ function App(): ReactElement {
       <Router history={history}>
         <ThemeProvider theme={defaultTheme}>
           <ErrorBoundary>
+            {/* might be a good idea to place header here instead of lazy loading */}
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
                 <Route path={commonConstant.pathHome} component={Home} />
