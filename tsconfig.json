@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "es6",
     "lib": [
@@ -20,7 +19,21 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react"
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": ".",
+    "paths": {
+      "test-utils": ["./src/__test__/utils/test-utils"],
+      "@/components": ["./src/components"],
+      "@/stories/*": ["./src/stories/*"],
+      "@/hooks": ["./src/hooks"],
+      "@/pages": ["./src/pages/index"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/utils": ["./src/utils"],
+      "@/common/*": ["./src/common/*"],
+      "@/themes/*": ["./src/themes/*"],
+      "@/stores/*": ["./src/stores/*"],
+      "@": ["./src/index"],
+    }
   },
   "include": [
     "src"
