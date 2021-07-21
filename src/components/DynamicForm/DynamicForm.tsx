@@ -1,46 +1,8 @@
-import React,{ useState, useEffect, ReactNode, ReactElement } from 'react';
+import { useState, useEffect, ReactElement, cloneElement } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Button } from '../Button/Button';
-import styled from '@emotion/styled';
-
-export interface IDynamicFormData {
-  id: string,
-  value: Record<string,unknown> | string,
-  error?: Record<string,unknown>
-}
-
-export interface IDynamicForm {
-  data: Array<IDynamicFormData>,
-  onDataDelete?: (id: string,callback: () => void) => void,
-  onDataChange: (data: IDynamicFormData[]) => void,
-  onAdd?: (data: IDynamicFormData[]) => void,
-  placeholder?: string,
-  addText?: ReactNode,
-  maxLength?: number,
-  template: ReactElement,
-  customFunction?: () => void | Record<string,unknown>,
-  edit: boolean,
-}
-
-export interface IDynamicFormTemplate {
-  onChange?: (value: Record<string,unknown>,isError: boolean) => void, 
-  onClickDelete?: () => void,
-  data?: Array<IDynamicFormData>,
-  key?: string, 
-  index?: string, 
-  customFunction?: Record<string,() => void>, 
-  error?: Record<string,unknown>,
-  edit?: boolean,
-}
-
-export const StyledDynamicFormContainer = styled.div`
-  .dynamicform-input {
-    margin: ${props => props.theme.spaces.mg4} 0;
-    .input-container {
-      display: inline-block;
-    }
-  }
-`;
+import Button from '../Button';
+import { IDynamicForm, IDynamicFormData } from './DynamicForm.interfaces';
+import { StyledDynamicFormContainer } from './DynamicForm.styles';
 
 export const DynamicForm = (props: IDynamicForm): ReactElement => {
   const [keys,setKeys] = useState<string[]>([]);
@@ -103,7 +65,7 @@ export const DynamicForm = (props: IDynamicForm): ReactElement => {
     const onClickDelete = () => handleDelete(val);
     const data = props?.data?.find(data => data.id === val)?.value;
     const error = props?.data?.find(data => data.id === val)?.error;
-    return React.cloneElement(props.template, { onChange, onClickDelete, data, key:val, index, customFunction, error, edit });
+    return cloneElement(props.template, { onChange, onClickDelete, data, key:val, index, customFunction, error, edit });
   });
 
   return (
