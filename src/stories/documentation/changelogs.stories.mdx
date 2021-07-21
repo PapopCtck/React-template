@@ -6,6 +6,60 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <br />
 
+## Release v.4.0.0
+
+**Dependency**
+
+- Changed `lodash` to `lodash-es` to support ES module import.
+
+- Removed `craco`.
+
+- Added `vite` and its react dependencies as a replacement for `craco`.
+
+https://vitejs.dev/
+
+- Added `jest` dependencies separately as support for `jest` is not yet implemented in `vite(esbuild)` and vice versa.
+
+- Moved all `@types` to dev dependency.
+
+- Added `storybook-builder-vite`
+
+- Added `rollup-plugin-analyzer` as a new bundle analyzer.
+
+**Core**
+
+- Changed build tool from `craco` to `vite` for a faster development process.
+
+- Added `babel.config.js` for `jest`
+
+- Splited `components` interfaces and styles to it's own files.
+
+- Added `index` for each `components`
+
+- Updated `components/index` to lazy import and export all components. This will improve the package size as it'll utilize react code splitting.
+
+- Updated `prestorybook` command.
+
+- Changed `storybook` builder to `storybook-builder-vite` for faster development process.
+
+- Updated all `env` prefix from `REACT_APP_` to `VITE_`
+
+- Added `no-multiple-empty-lines` eslint rule.
+
+- Disabled `cookie` functions in `stores/utils` by default to encourage httpOnly cookie.
+
+- Disabled `useLineLiff` hook by default.
+
+**Test cases**
+
+- Updated all test cases to support lazy loading components.
+
+**Storybook**
+
+- Updated `.storybook/preview.js` to support lazy loading components.
+
+- Changed recommendation for map from `@react-google-maps/api` to `google-map-react`
+
 ## Release v.3.0.1
 
 **Dependency**
