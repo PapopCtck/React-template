@@ -1,8 +1,8 @@
-import { render } from 'test-utils';
+import { render, waitFor } from 'test-utils';
 import { Alert } from '@/components';
 
 beforeEach(() => {
-  jest.useFakeTimers();
+  jest.useFakeTimers('legacy');
 });
 
 afterEach(() => {
@@ -11,10 +11,10 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-test('render without crach',() => {
+test('render without crach',async () => {
   const children = 'Success';
   const { getByText } = render(<Alert>{children}</Alert>);
-  getByText(children);
+  await waitFor(() => getByText(children));
 });
 
 
@@ -23,9 +23,9 @@ test('auto disappear',async () => {
   const duration = 1000;
   const onclose = jest.fn();
   const { getByText } = render(<Alert onCloseClick={onclose} duration={duration}>{children}</Alert>);
-  getByText(children);
-  expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), duration);
+  await waitFor(() => getByText(children));
   jest.runOnlyPendingTimers();
+  expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), duration);
   expect(onclose).toBeCalled();
 });
 

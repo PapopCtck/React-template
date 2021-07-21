@@ -1,4 +1,4 @@
-import { render } from 'test-utils';
+import { render, waitFor } from 'test-utils';
 import { act } from 'react-dom/test-utils';
 import { Avatar, IAvatar } from '@/components';
 
@@ -14,7 +14,7 @@ setupIntersectionObserverMock({ observe, construct });
 
 test('render without crashing',async () => {
   const { getByText } = render(<Avatar name="Test user" size="32px" />); 
-  const avatar = getByText('Te');
+  const avatar = await waitFor(() => getByText('Te'));
   expect(avatar.style.width).toBe('32px');
 });
 
