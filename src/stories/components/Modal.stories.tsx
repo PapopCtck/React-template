@@ -1,7 +1,7 @@
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react';
 
-import { Modal, IModalProps } from '@/components';
+import { Modal, IModal } from '@/components';
 
 export default {
   title: 'Components/Modal',
@@ -27,7 +27,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Pick<IModalProps,'children'|'show'|'onBackgroundClick'|'fullscreen'|'maxWidth'>> = (args) => <Modal {...args} />;
+const Template: Story<Pick<IModal,'children'|'show'|'onBackgroundClick'|'fullscreen'|'maxWidth'>> = (args) => <Modal {...args} />;
 
 export const String = Template.bind({});
 String.args = {

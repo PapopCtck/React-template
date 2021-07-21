@@ -45,6 +45,6 @@ Template.parameters = {
 export const Simple = Template.bind({});
 Simple.args = {
   src: 'https://picsum.photos/id/1018/500',
-  alt: 'Progressive loading',
+  alt: 'progressive-loading',
   widthPrefix: '/',
 };

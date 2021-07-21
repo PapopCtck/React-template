@@ -1,6 +1,5 @@
-import React from 'react';
-
-import { Header } from '@/components';
+import { ReactElement } from 'react';
+import { Header, IHeader } from '@/components';
 import './page.css';
 
 export interface PageProps {
@@ -10,13 +9,11 @@ export interface PageProps {
   onCreateAccount: () => void;
 }
 
-export const Page: React.FC<PageProps> = ({ user, onLogin, onLogout, onCreateAccount }) => (
+export const Page = ({ user, onLogin, onLogout, onCreateAccount }: IHeader): ReactElement => (
   <article>
     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />
-
     <section>
       <h2>Pages in Storybook</h2>
-     
     </section>
   </article>
 );

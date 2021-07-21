@@ -1,10 +1,10 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { CustomDatePicker, IDatePicker } from '@/components';
+import { DatePicker, IDatePicker } from '@/components';
 
 export default {
   title: 'Components/DatePicker',
-  component: CustomDatePicker,
+  component: DatePicker,
   argTypes: {
     value: {
       description: 'Date string',
@@ -33,7 +33,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<IDatePicker> = (args) => <CustomDatePicker {...args} />;
+const Template: Story<IDatePicker> = (args) => <DatePicker {...args} />;
 
 export const Simple = Template.bind({});
 Simple.args = {
