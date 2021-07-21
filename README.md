@@ -27,9 +27,9 @@
 
 Run `yarn` or `npm i` to install project's dependency. 
 
-To run development build of project, run `yarn start` or `npm start`.
+To run development build of project, run `yarn dev` or `npm run dev`.
 
-Additionaly, To run storybook, run `yarn storybook` or `npm storybook`. **( ✅ Recommend )**
+Additionaly, To run storybook, run `yarn storybook` or `npm run storybook`. **( ✅ Recommend )**
 
 ## Overview
 
