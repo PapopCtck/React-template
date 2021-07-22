@@ -10,4 +10,3 @@ export const Card = styled.div`
     padding: 0;
   }
 `;
-

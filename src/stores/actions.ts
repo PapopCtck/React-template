@@ -28,7 +28,6 @@ export const setProfile = (profile: UnPromise<ReturnType<typeof liff.getProfile>
 });
 
 
-
 export default {
   fetchGetData,
   fetchGetUserByLine,

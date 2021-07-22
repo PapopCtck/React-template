@@ -1,9 +1,6 @@
-import { HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 
-export interface ITextGradient extends HTMLAttributes<HTMLDivElement> {
-  color?: string,
-}
+import { ITextGradient } from './TextGradient.interfaces';
 
 export const TextGradient = styled.div<ITextGradient>`
     background: ${props => props.color ? props.color : props.theme.primaryColor};

@@ -15,9 +15,9 @@ export default {
   // - language
   SET_LANGUAGE_SUCCESS: 'SET_LANGUAGE_SUCCESS',
   // env
-  envDomainApi: process.env.REACT_APP_DOMAIN_API,
-  envCookie: process.env.REACT_APP_DOMAIN_COOKIE,
-  liffId: process.env.REACT_APP_LIFFID,
+  envDomainApi: process.env.VITE_DOMAIN_API,
+  envCookie: process.env.VITE_DOMAIN_COOKIE,
+  liffId: process.env.VITE_LIFFID,
   // default value
   defaultLanguage: 'th',
   languageTH: 'th',

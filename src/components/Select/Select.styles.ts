@@ -1,15 +1,7 @@
 import styled from '@emotion/styled';
 
 import { colorMix } from '@/utils';
-
-export interface ISStyledSelectContainer {
-  block?: boolean,
-}
-
-export interface ISelectContainer {
-  active?: boolean,
-  disabled?: boolean,
-}
+import { ISStyledSelectContainer, ISelectContainer } from './Select.interfaces';
 
 
 export const StyledSelectContainer = styled.div<ISStyledSelectContainer>(`
@@ -82,7 +74,7 @@ export const SelectOptionContainer = styled.div`
 
 export const SelectOptions = styled.ul`
       margin: 0;
-      padding: ${props => props.theme.spaces.pd3};
+      padding: 0;
       text-align: left;
       width: 100%;
       background-color: ${props => props.theme.componentBackgroundColor};
@@ -94,7 +86,7 @@ export const SelectOptions = styled.ul`
 
 export const SelectOption = styled.li`
         list-style-type: none;
-        padding: ${props => `${props.theme.spaces.pd2} ${props.theme.spaces.pd3}`};
+        padding: ${props => `${props.theme.spaces.pd3}`};
         background: ${props => props.theme.componentBackgroundColor};
         cursor: pointer;
         display: flex;

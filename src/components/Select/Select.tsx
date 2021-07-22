@@ -1,10 +1,10 @@
-import React, { createRef, CSSProperties, ReactElement, ReactNode } from 'react';
-
-import { withTheme, Theme } from '@emotion/react';
+import { Children, Component, createRef, isValidElement, ReactElement, ReactNode, RefObject } from 'react';
+import { withTheme } from '@emotion/react';
 import { ChevronDown } from 'react-feather';
 
-import { Checkbox } from '../Checkbox/Checkbox';
-import * as styled from './StyledSelect';
+import Checkbox from '../Checkbox';
+import * as styled from './Select.styles';
+import { ICustomSelectProps, ICustomSelectState, ICustomSelectData, ISelect } from './Select.interfaces';
 
 const { SelectCarret, SelectContainer, 
   SelectedText, SelectOption, 
@@ -18,40 +18,7 @@ declare module 'react' {
   }
 }
 
-export interface ICustomSelectData {
-  target: {
-    name?: string,
-    value: string,
-    id?: string,
-  }
-}
-
-export interface ICustomSelectProps {
-  value?: string,
-  children?: ReactNode,
-  placeholder?: string,
-  onChange: ({ 'target': { name, value, id } }:ICustomSelectData) => void,
-  name?: string,
-  id?: string,
-  disabled?: boolean,
-  allKeyword?: string,
-  showSelect?: boolean,
-  customCarret?: ReactElement,
-  theme?: Theme,
-}
-
-export interface ISelect extends ICustomSelectProps{
-  children?: ReactNode,
-  block?: boolean,
-  containerClassname?: string,
-  containerStyle?: CSSProperties,
-}
-
-export interface ICustomSelectState {
-  showOptionList: boolean,
-  defaultSelectText: ReactNode,
-}
-class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState> {
+class CustomSelect extends Component<ICustomSelectProps,ICustomSelectState> {
   constructor(props: ICustomSelectProps) {
     super(props);
     this.state = {
@@ -79,7 +46,7 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  private container: React.RefObject<HTMLDivElement>;
+  private container: RefObject<HTMLDivElement>;
 
   // This method handles the click that happens outside the
   // select text and list area
@@ -110,9 +77,9 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
 
   getDefaultSelectText = (props: ICustomSelectProps): void => {
     if ((props.value === '' || props.value) && Array.isArray(props.children)) {
-      const defaultOption = props.children?.flat().find(e => React.isValidElement(e) ? e.props.value === props.value : false);
+      const defaultOption = props.children?.flat().find(e => isValidElement(e) ? e.props.value === props.value : false);
       this.setState({
-        'defaultSelectText': defaultOption && React.isValidElement(defaultOption) ? defaultOption.props.children : '',
+        'defaultSelectText': defaultOption && isValidElement(defaultOption) ? defaultOption.props.children : '',
       });
     }
   }
@@ -120,7 +87,7 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
   render(): ReactElement {
     const { children, placeholder, onChange, name, id, value, disabled = false, allKeyword, showSelect = false, customCarret } = this.props;
     const { showOptionList, defaultSelectText } = this.state;
-    const isAll = allKeyword && ((value === allKeyword) || (React.Children.count(children) === 2));
+    const isAll = allKeyword && ((value === allKeyword) || (Children.count(children) === 2));
     return (
       <StyledCustomSelectContainer ref={this.container} onClick={disabled ? undefined : this.handleListDisplay}>
         <SelectContainer disabled={disabled} active={showOptionList} className={showOptionList ? 'active' : ''}
@@ -139,7 +106,7 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
                   }
                   if (Array.isArray(option)) {
                     return option.map((ele, index) => {
-                      if (ele && React.isValidElement(ele)) {
+                      if (ele && isValidElement(ele)) {
                         return (<SelectOption
                           key={`${idx}-${index}`}
                           className={`${ele.props.disabled && 'disabled'}`}
@@ -155,11 +122,11 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
                       }
                       return null;
                     });
-                  } else if (React.isValidElement(option)) {
+                  } else if (isValidElement(option)) {
                     return (
-                      <li
+                      <SelectOption
                         key={idx}
-                        className={`custom-select-option ${option.props.disabled && 'disabled'}`}
+                        className={`${option.props.disabled && 'disabled'}`}
                         name={name}
                         id={id}
                         value={option.props.value}
@@ -167,10 +134,10 @@ class CustomSelect extends React.Component<ICustomSelectProps,ICustomSelectState
                       >
                         {showSelect && <Checkbox id={`${id}-checkbox${idx}`} className="custom-select-option" type="box" checked={isAll || (value === option.props.value)} readOnly />}
                         <span className="custom-select-option">{option.props.children}</span>
-                      </li>
+                      </SelectOption>
                     );
                   }
-                }) : React.isValidElement(children) && <SelectOption
+                }) : isValidElement(children) && <SelectOption
                   className={`${children.props.disabled && 'disabled'}`}
                   name={name}
                   id={id}

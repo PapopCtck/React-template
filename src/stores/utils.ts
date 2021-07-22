@@ -1,6 +1,6 @@
 import { put, delay, call } from 'redux-saga/effects';
 
-import { createCookieToken, deleteCookieToken, getCookieToken } from '@/utils';
+// import { createCookieToken, deleteCookieToken, getCookieToken } from '@/utils';
 import commonConstant from '@/common/commonConstant';
 import { Action, Types } from './interfaces';
 
@@ -18,22 +18,24 @@ export const createAsyncTypes = (typeString: string): Types =>
   }, <Types>{});
 
 function* fetchRefreshToken(): unknown {
-  const token = getCookieToken();
+  // const token = getCookieToken();
   try {
     const headers = yield new Headers({
       Accept: 'application/json',
       'Content-Type': 'application/json',
     });
-    yield headers.append('Authorization', token);
+    // yield headers.append('Authorization', token);
     const res = yield fetch(`${commonConstant.envDomainApi}/api/users/refresh-token`, {
       method: 'POST',
       body: JSON.stringify({ ttl: 21600 }),
       headers,
+      credentials: 'include',
     });
-    if (res.status === 200 && token) {
-      return createCookieToken(token);
-    } else if (res.status === 401) {
-      deleteCookieToken();
+    // if (res.status === 200 && token) {
+    //   // return createCookieToken(token);
+    // } else 
+    if (res.status === 401) {
+      // deleteCookieToken();
       return window.location.href = commonConstant.pathLogin;
     } else if (res.status === 500 || res.status === 502) {
       return window.location.href = commonConstant.pathError500;
@@ -52,11 +54,13 @@ function* checkStatus(resTypes: Types | undefined, res: Response, isToken?: bool
       // if (resTypes?.SUCCESS === Type.USER_LOGOUT.SUCCESS) {
       //   yield deleteCookieToken();
       // } // case there is api for logout
-      if (isLogin) {createCookieToken(data.accessToken, 24); }
-      else if (isToken) {yield fetchRefreshToken(); }
+      // if (isLogin) {createCookieToken(data.accessToken, 24); }
+      // else 
+      if (isToken) {yield fetchRefreshToken(); }
       return yield put({ type: resTypes?.SUCCESS, data, status: res.status });
     } else if (res.status === 401) {
-      deleteCookieToken();
+      // deleteCookieToken();
+      // yield put(logout());
       window.location.href = commonConstant.pathLogin;
     } else if (res.status === 500 || res.status === 502) {
       window.location.href = commonConstant.pathError500;
@@ -95,11 +99,12 @@ export function* api({ resTypes, method = '', url, isToken = false, data, upload
       Accept: 'application/json',
       'Content-Type': 'application/json',
     });
-    if (isToken) { yield headers.append('Authorization', getCookieToken()); }
+    // if (isToken) { yield headers.append('Authorization', getCookieToken()); }
     const res = yield fetch(`${`${url}${paramsFormat}`}`, {
       method,
       body: dataOrParams === 'data' ? (upload ? data : JSON.stringify(data)) : null,
       headers,
+      credentials: isLogin || isToken ? 'include' : undefined,
     });
     yield checkStatus(resTypes, res, isToken, isLogin);
   } catch (err) {

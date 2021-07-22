@@ -1,49 +1,12 @@
-import styled from '@emotion/styled';
+import { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '../Button/Button';
-import { Select } from '../Select/Select';
+import Button from '../Button';
+import Select from '../Select';
+import { IHeader } from './Header.interfaces';
+import { StyledHeader } from './Header.styles';
 
-export interface IHeaderProps {
-  user?: Record<string,unknown>;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
-}
-
-export const StyledHeader = styled.header`
-  .wrapper {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: ${props => `${props.theme.spaces.pd4} ${props.theme.spaces.pd5}`};
-    display: flex;
-    align-items: center;
-  }
-
-  svg {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  h1 {
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 1;
-    margin: ${props => `${props.theme.spaces.mg3} 0 ${props.theme.spaces.mg3} ${props.theme.spaces.mg5}`};
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .app-name{
-    margin-right: auto;
-  }
-
-  button + button {
-    margin-left: ${props => props.theme.spaces.mg3};
-  }
-`;
-
-export const Header: React.FC<IHeaderProps> = ({ user, onLogin, onLogout, onCreateAccount }: IHeaderProps) => {
+export const Header = ({ user, onLogin, onLogout, onCreateAccount }: IHeader): ReactElement => {
   const { t, i18n } = useTranslation('common');
   return (<StyledHeader>
     <div className="wrapper">

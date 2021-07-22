@@ -1,6 +1,12 @@
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
   options: {
     storySort: {
       order: ['Documentation', 'Pages', ['Home'], 'Components'],
@@ -15,6 +21,7 @@ import { GlobalStyle } from "@/utils";
 import defaultTheme from '@/themes/default';
 
 import results from 'test-results/.jest-results.json';
+import { Suspense } from 'react';
 
 export const decorators = [(Story) => (
   <>
@@ -25,4 +32,9 @@ export const decorators = [(Story) => (
   <ThemeProvider theme={defaultTheme}>
     <Story />
   </ThemeProvider>
-), withTests({ results })];
+), withTests({ results })
+  , (Story) => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Story />
+    </Suspense>
+  )];

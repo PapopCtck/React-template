@@ -1,4 +1,4 @@
-import { act, fireEvent, render } from 'test-utils';
+import { act, fireEvent, render, waitFor } from 'test-utils';
 import { Simple } from '@/stories/components/ProgressiveImage.stories';
 import { setupIntersectionObserverMock } from '../../__mocks__/MockIntersectionObserver';
 
@@ -8,16 +8,12 @@ const unobserve = jest.fn();
 
 setupIntersectionObserverMock({ observe, construct });
 
-test('render without crash',() => {
-  const { findAllByAltText } = render(<Simple {...Simple.args} />);
-  expect(findAllByAltText(Simple.args?.alt ?? '')).not.toBeNull();
-});
-
 test('render from src',async () => {
   const mockEntry = { isIntersecting: true };
   const args = Simple.args;
   const alt = args?.alt ?? '';
-  const { findAllByAltText } = render(<Simple {...args} />);
+  const { getByTestId,findAllByAltText } = render(<Simple {...args} />);
+  await waitFor(() => getByTestId('container'));
   expect(observe).toBeCalled();
   act(() => {
     const observerCallback = construct.mock.calls[0][0];
@@ -31,4 +27,10 @@ test('render from src',async () => {
   fireEvent.load(realImage);
   expect(thumbNail).not.toBeVisible();
   expect(realImage).toBeVisible();
+});
+
+test('render without crash',async () => {
+  const { getByTestId,findAllByAltText } = render(<Simple {...Simple.args} />);
+  await waitFor(() => getByTestId('container'));
+  expect(findAllByAltText(Simple.args?.alt ?? '')).not.toBeNull();
 });

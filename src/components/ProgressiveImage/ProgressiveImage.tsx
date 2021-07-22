@@ -1,53 +1,9 @@
-import { CSSProperties, MouseEventHandler, ReactElement, RefObject, useRef, useState } from 'react';
-import styled from '@emotion/styled';
+import { ReactElement, RefObject, useRef, useState } from 'react';
 
 import { useIntersectionObserver } from '@/hooks';
+import { IProgressiveImage } from './ProgressiveImage.interfaces';
+import { ImageContainer, Thumb, Full, Img } from './ProgressiveImage.styles';
 
-export interface IProgressiveImage {
-  src?: string,
-  alt?: string,
-  className?: string,
-  animationUrl?: string,
-  srcSet?: string,
-  thumbWidth?: number,
-  style?: CSSProperties,
-  objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down',
-  onClick?: MouseEventHandler,
-  widthPrefix?: string,
-}
-
-interface FullImg {
-  objectFit: string,
-}
-
-const ImageContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.05);
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-`;
-
-const Img = styled.img`
-    position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-`;
-
-const Thumb = styled(Img)`
-  filter: blur(20px);
-  transform: scale(1.1);
-  transition: visibility 0ms ease 300ms;
-`;
-
-const Full = styled(Img)<FullImg>`
-  transition: opacity 300ms ease 0ms;
-  object-fit: ${props => props.objectFit};
-`;
 
 export const ProgressiveImage = ({ className, style,onClick, ...rest }: IProgressiveImage): ReactElement => {
   const ref = useRef() as RefObject<HTMLDivElement>;
@@ -63,7 +19,7 @@ export const ProgressiveImage = ({ className, style,onClick, ...rest }: IProgres
   });
 
   return (
-    <ImageContainer ref={ref} className={className} style={style} onClick={onClick}>
+    <ImageContainer data-testid="container" ref={ref} className={className} style={style} onClick={onClick}>
       {isVisible && (
         <Image {...rest} />
       )}
