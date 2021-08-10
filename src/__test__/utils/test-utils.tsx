@@ -1,6 +1,6 @@
 import { FC, ReactElement, Suspense } from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react/macro';
 import defaultTheme from '@/themes/default';
 
 const AllTheProviders: FC = ({ children }) => (

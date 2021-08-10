@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { IStoryAvatarContainer } from './Avatar.interfaces';
 
 export const StyledStoryAvatarContainer = styled.div<IStoryAvatarContainer>`

@@ -1,5 +1,5 @@
 import { colorMix } from '@/utils';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { IStyledCheckbox } from './Checkbox.interfaces';
 
 export const StyledCheckboxContainer = styled.div<IStyledCheckbox>`

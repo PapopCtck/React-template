@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { useTheme } from '@emotion/react';
+import { useTheme } from '@emotion/react/macro';
 
 import { colorMix } from '@/utils';
 import { IProgressBar } from './ProgressBar.interfaces';
