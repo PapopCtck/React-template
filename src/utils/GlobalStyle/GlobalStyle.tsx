@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { Global, Theme } from '@emotion/react';
+import { Global, Theme } from '@emotion/react/macro';
 
 export interface IGlobalStyle{
   theme: Theme,

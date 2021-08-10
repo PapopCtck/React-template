@@ -1,6 +1,6 @@
 import { ReactElement, Suspense } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react/macro';
 
 import defaultTheme from '@/themes/default';
 import commonConstant from '@/common/commonConstant';

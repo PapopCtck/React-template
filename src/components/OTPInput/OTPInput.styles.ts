@@ -1,5 +1,5 @@
-import { keyframes } from '@emotion/react';
-import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react/macro';
+import styled from '@emotion/styled/macro';
 
 export const shake = keyframes`
 8%,

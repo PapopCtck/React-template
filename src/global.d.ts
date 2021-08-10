@@ -1,8 +1,8 @@
-import '@emotion/react';
+import '@emotion/react/macro';
 import * as colors from './themes/colors';
 import * as spaces from './themes/spaces';
 
-declare module '@emotion/react' {
+declare module '@emotion/react/macro' {
   export interface Theme {
     colors: typeof colors,
     spaces: typeof spaces,

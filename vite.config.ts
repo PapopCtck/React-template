@@ -4,6 +4,7 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 import viteCompression from 'vite-plugin-compression';
 import svgr from 'vite-plugin-svgr';
 import { resolve } from 'path';
+import macrosPlugin from "vite-plugin-babel-macros";
 // import analyze from 'rollup-plugin-analyzer';
 
 // https://vitejs.dev/config/
@@ -30,6 +31,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       reactRefresh(),
+      macrosPlugin(),
       viteCompression(),
       // viteCompression({
       //   algorithm: 'brotliCompress',

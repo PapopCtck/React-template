@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 
 import { colorMix } from '@/utils';
 import { ISStyledSelectContainer, ISelectContainer } from './Select.interfaces';

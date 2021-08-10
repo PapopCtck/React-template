@@ -1,5 +1,5 @@
-import { keyframes, css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { keyframes, css } from '@emotion/react/macro';
+import styled from '@emotion/styled/macro';
 
 import { ISkeleton } from './Skeleton.interfaces';
 

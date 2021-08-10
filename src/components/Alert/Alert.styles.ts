@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { motion } from 'framer-motion';
 import { X } from 'react-feather';
 import { IStyledAlert } from './Alert.interfaces';

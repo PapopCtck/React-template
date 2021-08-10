@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { Standalone, ICollapseContent } from './Collapse.interfaces';
 
 export const StyledCollapseContainer = styled.div``;

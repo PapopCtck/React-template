@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement, useEffect, useLayoutEffect, useState } from 'react';
 import { XCircle, CheckCircle, AlertCircle } from 'react-feather';
-import { useTheme } from '@emotion/react';
+import { useTheme } from '@emotion/react/macro';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion'; 
 import { v4 as uuidv4 } from 'uuid';

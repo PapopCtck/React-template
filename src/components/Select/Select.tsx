@@ -1,5 +1,5 @@
 import { Children, Component, createRef, isValidElement, ReactElement, ReactNode, RefObject } from 'react';
-import { withTheme } from '@emotion/react';
+import { withTheme } from '@emotion/react/macro';
 import { ChevronDown } from 'react-feather';
 
 import Checkbox from '../Checkbox';

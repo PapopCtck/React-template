@@ -1,4 +1,4 @@
-import { Theme } from '@emotion/react';
+import { Theme } from '@emotion/react/macro';
 import { ReactNode, ReactElement, CSSProperties } from 'react';
 
 export interface ISStyledSelectContainer {

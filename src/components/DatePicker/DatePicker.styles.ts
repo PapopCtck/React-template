@@ -1,6 +1,6 @@
 import { colorMix } from '@/utils';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react/macro';
+import styled from '@emotion/styled/macro';
 import { IStyledDatePickerContainer } from './DatePicker.interfaces';
 
 export const StyledDatePickerContainer = styled('div')<IStyledDatePickerContainer>(
