@@ -13,5 +13,6 @@ module.exports = {
   plugins: [
     '@emotion',
     '@babel/plugin-transform-runtime',
+    'babel-plugin-macros',
   ],
 };
